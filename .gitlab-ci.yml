@@ -4,9 +4,9 @@ stages:
 
 build:Gulp_Pipeline:
   stage: build_ui
-  image: kkarczmarczyk/node-yarn:latest
+  image: node:8.4
   script:
-    - yarn install
+    - npm install
     - ./node_modules/.bin/gulp dist
   artifacts:
     paths:
