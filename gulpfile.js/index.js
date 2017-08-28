@@ -3,15 +3,13 @@ var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var path = require('path');
 var runSequence = require('run-sequence');
+var watch = require('gulp-watch');
+connect = require('gulp-connect');
 
 var config = require('../config');
 
 gulp.task('default', function(callback) {
-  return runSequence('copyStatic', 'styles', callback);
-});
-
-gulp.task('dev', function(callback) {
-  return runSequence('copyStatic', 'styles', callback);
+  return runSequence('copyStatic', 'styles', 'connect', callback);
 });
 
 gulp.task('dist', function(callback) {
@@ -45,4 +43,11 @@ gulp.task('styles-bootstrap', function(callback) {
     .pipe(gulp.dest(path.join(config.dest, 'css')));
   
   callback();
+});
+
+gulp.task('connect', function() {
+  connect.server({
+    root: config.dest,
+    livereload: true
+  });
 });
