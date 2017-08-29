@@ -9,7 +9,7 @@ var config = require('../config');
 
 gulp.task('dist', function(callback) {
   config.browserSync = false;
-  return runSequence('copyStatic', 'styles', callback);
+  return runSequence('copyStatic', 'styles'/*, build-search-index*/, callback);
 });
 
 gulp.task('copyStatic', function(callback) {

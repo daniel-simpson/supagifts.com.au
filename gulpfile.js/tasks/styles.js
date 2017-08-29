@@ -14,7 +14,7 @@ gulp.task('styles-local', function(callback) {
   gulp.src(path.join(config.src, 'styles/**/*.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(rename('styles.css'))
-    .pipe(gulp.dest(path.join(config.dest, 'css')));
+    .pipe(gulp.dest(path.join(config.dest, 'assets')));
   
     callback();
 });
@@ -23,7 +23,7 @@ gulp.task('styles-bootstrap', function(callback) {
   gulp.src('./node_modules/bootstrap/scss/bootstrap.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(rename('bootstrap.css'))
-    .pipe(gulp.dest(path.join(config.dest, 'css')));
+    .pipe(gulp.dest(path.join(config.dest, 'assets')));
   
   callback();
 });

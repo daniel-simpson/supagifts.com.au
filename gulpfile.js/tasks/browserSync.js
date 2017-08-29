@@ -12,6 +12,7 @@ gulp.task('browserSync-init', function(callback) {
   });
 
   gulp.watch(path.join(config.dest, '{**/*,*}.{html,css,js}')).on('change', browserSync.reload);
+  callback();
 });
 
 gulp.task('browserSync-reload', function(callback) {
