@@ -3,7 +3,6 @@ var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var path = require('path');
 var runSequence = require('run-sequence');
-var browserSync = require('browser-sync');
 var requireDir = require('require-dir');
 
 requireDir('tasks');
@@ -43,20 +42,6 @@ gulp.task('styles-bootstrap', function(callback) {
     .pipe(gulp.dest(path.join(config.dest, 'css')));
   
   callback();
-});
-
-gulp.task('browserSync-init', function(callback) {
-  browserSync.init({
-    server: {
-      baseDir: config.dest
-    }
-  });
-
-  gulp.watch(path.join(config.dest, '{**/*,*}.{html,css,js}')).on('change', browserSync.reload);
-});
-
-gulp.task('browserSync-reload', function(callback) {
-  browserSync.reload();
 });
 
 gulp.task('default', function(callback) {
