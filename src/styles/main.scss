@@ -1,3 +1,11 @@
+* {
+  font-family: 'Encode Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5 ,h6 {
+  font-family: 'Chango', cursive;
+}
+
 body {
   &:before {
     content: "";
@@ -8,9 +16,9 @@ body {
     top: 0;
     bottom: 0;
     z-index: -1;
-    background-image: url('https://source.unsplash.com/featured/daily');
+    background-image: url('https://source.unsplash.com/featured/?coffee,tea');
     background-size: cover;
-    filter: blur(5px);
+    filter: blur(5px) brightness(.5);
   }
   height: 100%;
   width: 100%;
