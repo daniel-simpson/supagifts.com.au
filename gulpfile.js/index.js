@@ -3,16 +3,12 @@ var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var path = require('path');
 var runSequence = require('run-sequence');
-var watch = require('gulp-watch');
-connect = require('gulp-connect');
+var browserSync = require('browser-sync');
 
 var config = require('../config');
 
-gulp.task('default', function(callback) {
-  return runSequence('copyStatic', 'styles', 'connect', callback);
-});
-
 gulp.task('dist', function(callback) {
+  config.browserSync = false;
   return runSequence('copyStatic', 'styles', callback);
 });
 
@@ -28,11 +24,15 @@ gulp.task('styles', function(callback) {
 });
 
 gulp.task('styles-local', function(callback) {
-  gulp.src(path.join(config.src, 'styles/**/*.scss'))
+  var changedStyles = gulp.src(path.join(config.src, 'styles/**/*.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(rename('styles.css'))
     .pipe(gulp.dest(path.join(config.dest, 'css')));
   
+  if(config.hotReload) {
+    changedStyles.pipe(browserSync.stream());
+  }
+
   callback();
 });
 
@@ -45,9 +45,20 @@ gulp.task('styles-bootstrap', function(callback) {
   callback();
 });
 
-gulp.task('connect', function() {
-  connect.server({
-    root: config.dest,
-    livereload: true
+gulp.task('browserSync', function(callback) {
+  browserSync.init({
+    server: {
+      baseDir: config.dest
+    }
   });
+
+  gulp.watch(path.join(config.dest, '{**/*,*}.{html,css,js}')).on('change', browserSync.reload);
+});
+
+gulp.task('default', function(callback) {
+  gulp.watch(path.join(config.src, 'styles', '/*.scss'), ['styles-local']);
+
+  var stream = runSequence('copyStatic', 'styles', 'browserSync', callback);
+  config.hotReload = true;
+  return stream;
 });
