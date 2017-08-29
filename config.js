@@ -1,5 +1,8 @@
 
 module.exports = {
   src: './src',
-  dest: './public'
+  dest: './public',
+  contentful: {
+    dataFile: './src/data.json'
+  }
 }

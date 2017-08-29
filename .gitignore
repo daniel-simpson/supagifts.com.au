@@ -3,3 +3,5 @@ node_modules/
 public/**/*.html
 public/**/*.css
 public/**/*.js
+
+src/data.json
