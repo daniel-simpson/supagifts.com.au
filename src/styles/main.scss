@@ -1,5 +1,35 @@
 
 body {
-    background-color: black;
-    color: white;
+  &:before {
+    content: "";
+    position: fixed;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: url('https://source.unsplash.com/featured/daily');
+    background-size: cover;
+    filter: blur(5px);
+  }
+  height: 100%;
+  width: 100%;
+  color: white;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+
+  > div {
+    max-width: 50%;
+    text-align: center;
+  }
+}
+
+.cta {
+  text-align: center;
 }

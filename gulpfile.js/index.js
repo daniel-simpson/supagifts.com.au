@@ -16,6 +16,11 @@ gulp.task('copyStatic', function(callback) {
   var staticFiles = path.join(config.src, 'static', '*.*');
   gulp.src(staticFiles)
     .pipe(gulp.dest(config.dest));
+
+  if(config.hotReload) {
+    browserSync.reload();
+  }
+
   callback();
 });
 
@@ -57,6 +62,7 @@ gulp.task('browserSync', function(callback) {
 
 gulp.task('default', function(callback) {
   gulp.watch(path.join(config.src, 'styles', '/*.scss'), ['styles-local']);
+  gulp.watch(path.join(config.src, 'static', '{**/*,*}.*'), ['copyStatic']);
 
   var stream = runSequence('copyStatic', 'styles', 'browserSync', callback);
   config.hotReload = true;
