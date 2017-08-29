@@ -22,11 +22,13 @@
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
+    "contentful-data": "^1.2.0",
     "fs-extra": "^4.0.1",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-watch": "^4.3.11",
+    "require-dir": "^0.3.2",
     "run-sequence": "^2.1.0"
   }
 }

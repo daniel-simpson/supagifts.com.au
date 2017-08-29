@@ -4,6 +4,9 @@ var rename = require('gulp-rename');
 var path = require('path');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
+var requireDir = require('require-dir');
+
+requireDir('tasks');
 
 var config = require('../config');
 
@@ -11,6 +14,7 @@ gulp.task('dist', function(callback) {
   config.browserSync = false;
   return runSequence('copyStatic', 'styles', callback);
 });
+
 
 gulp.task('copyStatic', function(callback) {
   var staticFiles = path.join(config.src, 'static', '*.*');
