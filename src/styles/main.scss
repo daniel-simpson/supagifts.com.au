@@ -24,8 +24,11 @@ body {
   height: 70vh;
 
   > div {
-    max-width: 50%;
     text-align: center;
+  }
+
+  h1 {
+    font-size: 5rem;
   }
 }
 
