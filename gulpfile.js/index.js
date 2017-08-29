@@ -15,15 +15,10 @@ gulp.task('dist', function(callback) {
   return runSequence('copyStatic', 'styles', callback);
 });
 
-
 gulp.task('copyStatic', function(callback) {
   var staticFiles = path.join(config.src, 'static', '*.*');
   gulp.src(staticFiles)
     .pipe(gulp.dest(config.dest));
-
-  if(config.hotReload) {
-    browserSync.reload();
-  }
 
   callback();
 });
@@ -33,16 +28,12 @@ gulp.task('styles', function(callback) {
 });
 
 gulp.task('styles-local', function(callback) {
-  var changedStyles = gulp.src(path.join(config.src, 'styles/**/*.scss'))
+  gulp.src(path.join(config.src, 'styles/**/*.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(rename('styles.css'))
     .pipe(gulp.dest(path.join(config.dest, 'css')));
   
-  if(config.hotReload) {
-    changedStyles.pipe(browserSync.stream());
-  }
-
-  callback();
+  runSequence('browserSync-reload', callback);
 });
 
 gulp.task('styles-bootstrap', function(callback) {
@@ -54,7 +45,7 @@ gulp.task('styles-bootstrap', function(callback) {
   callback();
 });
 
-gulp.task('browserSync', function(callback) {
+gulp.task('browserSync-init', function(callback) {
   browserSync.init({
     server: {
       baseDir: config.dest
@@ -64,11 +55,14 @@ gulp.task('browserSync', function(callback) {
   gulp.watch(path.join(config.dest, '{**/*,*}.{html,css,js}')).on('change', browserSync.reload);
 });
 
+gulp.task('browserSync-reload', function(callback) {
+  browserSync.reload();
+});
+
 gulp.task('default', function(callback) {
   gulp.watch(path.join(config.src, 'styles', '/*.scss'), ['styles-local']);
   gulp.watch(path.join(config.src, 'static', '{**/*,*}.*'), ['copyStatic']);
 
-  var stream = runSequence('copyStatic', 'styles', 'browserSync', callback);
-  config.hotReload = true;
+  var stream = runSequence('browserSync-init', 'copyStatic', 'styles', callback);
   return stream;
 });
