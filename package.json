@@ -18,6 +18,7 @@
   "homepage": "https://gitlab.com/supagifts.com.au/Website#README",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
+    "lunr": "^2.1.2",
     "vue": "^2.4.2"
   },
   "devDependencies": {
