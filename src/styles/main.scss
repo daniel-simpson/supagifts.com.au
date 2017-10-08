@@ -115,6 +115,13 @@ header {
   }
 }
 
+.splashpage .cta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5vh;
+}
+
 button {
   border: 1px solid $secondary-dark;
   border-radius: 5px;
