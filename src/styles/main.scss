@@ -1,9 +1,9 @@
 * {
-  font-family: 'Encode Sans', sans-serif;
+  font-family: 'museo-sans', sans-serif;
 }
 
 h1, h2, h3, h4, h5 ,h6 {
-  font-family: 'Chango', cursive;
+  font-family: serif;
 }
 
 body {
@@ -29,7 +29,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  height: 40vh;
 
   > div {
     text-align: center;
