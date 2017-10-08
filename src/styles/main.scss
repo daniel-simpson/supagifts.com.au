@@ -10,59 +10,78 @@ h1, h2, h3, h4, h5 ,h6 {
   font-family: serif;
 }
 
-body {
-  &:before {
-    content: "";
-    position: fixed;
-    display: block;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    background-color: $primary-light;
-    //background-image: url('https://source.unsplash.com/featured/?coffee,tea');
-    background-size: cover;
-    //filter: blur(5px) brightness(.5);
+ul, ol {
+  li {
+    list-style: none;
   }
+}
+
+blockquote {
+  font-size: 1*$gutter;
+
+  .standout {
+    font-size: 1.5*$gutter;
+  }
+}
+
+body {
   height: 100%;
   width: 100%;
-  color: white;
+  color: $primary-dark;
+  background-color: white;
+}
+
+header {
+  height: 15vh;
+  width: 100%;
+  background-color: $primary-light;
+  
+  .header-scaffold {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 2fr;
+    
+    a.logo {
+      grid-column: 1;
+    }
+
+    ul.menu {
+      grid-column: 2;
+      margin: auto 0 ;
+      align-items: center;
+      justify-self: end;
+
+      p, blockquote {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .logo {
+    img {
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 15vh;
+      max-width: 100%;
+    }
+  }
 }
 
 .splashpage {
   display: grid;
-  height: 100vh;
+  height: 85vh;
   padding-top: $gutter;
   padding-bottom: 3 * $gutter;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 4fr 1fr;
 }
 
 .hero {
-  grid-row: 1;
-
-  display: subgrid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: 1fr 4fr;
+  display: grid;
   align-items: center;
-  justify-content: center;
 
-  small {
-    grid-row: 1;
-    grid-column: 1;
-    @include transform-origin(bottom right);
-    @include transform(rotate(-30deg));
-  }
-
-  h1 {
-    font-size: 5rem;
-    grid-row: 2;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    text-align: center;
-  }
-
-  p {
+  blockquote, p {
     text-align: center;
   }
 }
@@ -71,10 +90,12 @@ body {
   display: grid;
   padding: $gutter;
   background-color: white;
-  grid-row: 2;
   text-align: center;
   
   > div {
+    border-radius: 5px;
+    background-color: $primary-light;
+    padding: $gutter;
     margin: auto;
   }
 }
