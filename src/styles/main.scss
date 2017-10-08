@@ -1,4 +1,8 @@
+@import "_mixins";
+@import "_palette";
+
 * {
+  color: $primary-dark;
   font-family: 'museo-sans', sans-serif;
 }
 
@@ -16,30 +20,70 @@ body {
     top: 0;
     bottom: 0;
     z-index: -1;
-    background-image: url('https://source.unsplash.com/featured/?coffee,tea');
+    background-color: $primary-light;
+    //background-image: url('https://source.unsplash.com/featured/?coffee,tea');
     background-size: cover;
-    filter: blur(5px) brightness(.5);
+    //filter: blur(5px) brightness(.5);
   }
   height: 100%;
   width: 100%;
   color: white;
 }
 
+.splashpage {
+  display: grid;
+  height: 100vh;
+  padding-top: $gutter;
+  padding-bottom: 3 * $gutter;
+  grid-template-rows: 2fr 1fr;
+}
+
 .hero {
-  display: flex;
+  grid-row: 1;
+
+  display: subgrid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 4fr;
   align-items: center;
   justify-content: center;
-  height: 40vh;
 
-  > div {
-    text-align: center;
+  small {
+    grid-row: 1;
+    grid-column: 1;
+    @include transform-origin(bottom right);
+    @include transform(rotate(-30deg));
   }
 
   h1 {
     font-size: 5rem;
+    grid-row: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
   }
 }
 
 .cta {
+  display: grid;
+  padding: $gutter;
+  background-color: white;
+  grid-row: 2;
   text-align: center;
+  
+  > div {
+    margin: auto;
+  }
+}
+
+button {
+  border: 1px solid $secondary-dark;
+  border-radius: 5px;
+  background-color: $secondary-dark;
+  color: white;
+
+  @include animated-drop-shadow(4);
 }
