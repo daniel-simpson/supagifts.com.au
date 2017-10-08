@@ -29,6 +29,21 @@ body {
   width: 100%;
   color: $primary-dark;
   background-color: white;
+  
+  &:before {
+    content: "";
+    position: fixed;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: $primary-light;
+    background-image: url('https://source.unsplash.com/featured/?coffee,tea');
+    background-size: cover;
+    filter: blur(4px) brightness(1);
+  }
 }
 
 header {
@@ -81,21 +96,7 @@ header {
 .hero {
   display: grid;
   align-items: center;
-
-  &:before {
-    content: "";
-    position: fixed;
-    display: block;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    background-color: $primary-light;
-    background-image: url('https://source.unsplash.com/featured/?coffee,tea');
-    background-size: cover;
-    filter: blur(4px) brightness(1);
-  }
+  position: relative;
 
   blockquote, p {
     text-align: center;
