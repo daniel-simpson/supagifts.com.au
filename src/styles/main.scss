@@ -53,7 +53,6 @@ body {
 }
 
 header {
-  height: 15vh;
   width: 100%;
   background-color: $primary-light;
 
@@ -90,6 +89,12 @@ header {
       max-width: 100%;
     }
   }
+}
+
+//Lower case navs
+header,
+.bm-item-list {
+  text-transform: lowercase;
 }
 
 .splashpage {

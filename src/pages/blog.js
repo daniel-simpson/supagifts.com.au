@@ -8,21 +8,19 @@ class BlogListingPage extends React.PureComponent {
   };
 
   render() {
-    // const blogs = this.props.data.allContentfulBlog.edges.map(b => b.node);
+    const blogs = this.props.data.allContentfulBlog.edges.map(b => b.node);
 
-    // blogs.sort(b => b.createdAt);
-    // blogs.reverse();
-
-    // {blogs.map(b => (
-    //   <li key={b.id}>
-    //     <Link to={`/blog/${b.slug}`}>{b.title}</Link>
-    //   </li>
-    // ))}
+    blogs.sort(b => b.createdAt);
+    blogs.reverse();
 
     return (
       <div>
         <ul>
-          <li>blogs here</li>
+          {blogs.map(b => (
+            <li key={b.id}>
+              <Link to={`/blog/${b.slug}`}>{b.title}</Link>
+            </li>
+          ))}
         </ul>
       </div>
     );

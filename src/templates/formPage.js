@@ -2,51 +2,56 @@ import React from "react";
 import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 
-class ContentPageTemplate extends React.Component {
+import HeroBanner from "../components/HeroBanner";
+import PaperformEmbed from "../components/PaperformEmbed";
+
+class FormPageTemplate extends React.Component {
   static propTypes = {
     data: PropTypes.object.isRequired
   };
+
   render() {
-    const contentPage = this.props.data.contentfulContentPage;
-    const { id, title, slug, content } = contentPage;
+    const {
+      title,
+      content,
+      paperformEmbedId
+    } = this.props.data.contentfulFormPage;
+
     return (
       <div>
-        <div
-          style={{
-            display: `flex`,
-            alignItems: `center`
-          }}
-        >
+        <HeroBanner imageUrl="">
           <div>
             <h1>{title}</h1>
           </div>
-        </div>
+        </HeroBanner>
 
         <div
           dangerouslySetInnerHTML={{
             __html: content.childMarkdownRemark.html
           }}
         />
+
+        <PaperformEmbed id={paperformEmbedId} />
       </div>
     );
   }
 }
 
-export default ContentPageTemplate;
+export default FormPageTemplate;
 
 export const pageQuery = graphql`
-  query contentPageQuery($id: String!) {
-    contentfulContentPage(id: { eq: $id }) {
-      id
-      slug
+  query formPageQuery($id: String!) {
+    contentfulFormPage(id: { eq: $id }) {
       title
       content {
         id
         childMarkdownRemark {
           id
+          timeToRead
           html
         }
       }
+      paperformEmbedId
     }
   }
 `;

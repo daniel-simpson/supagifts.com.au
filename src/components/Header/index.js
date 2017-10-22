@@ -27,7 +27,7 @@ class Header extends React.PureComponent {
             justifyContent: "space-between",
             position: "relative",
 
-            margin: "0 auto 1rem",
+            margin: "0 auto",
             maxWidth: "960px"
           }}
         >

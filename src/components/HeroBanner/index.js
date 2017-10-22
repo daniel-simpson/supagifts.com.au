@@ -12,8 +12,6 @@ class HeroBanner extends React.PureComponent {
   render() {
     const { imageUrl, children } = this.props;
 
-    console.log(this);
-
     return (
       <div
         className="hero-image"

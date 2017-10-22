@@ -8,8 +8,6 @@ class IndexPage extends React.PureComponent {
   };
 
   render() {
-    console.log("home", this.props.data);
-
     let blogs = this.props.data.allContentfulBlog.edges.map(b => b.node);
     blogs.sort(b => b.createdAt);
     blogs.reverse();

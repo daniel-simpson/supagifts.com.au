@@ -4,11 +4,11 @@ import * as PropTypes from "prop-types";
 
 import HeroBanner from "../components/HeroBanner";
 
-const propTypes = {
-  data: PropTypes.object.isRequired
-};
-
 class BlogTemplate extends React.Component {
+  static propTypes = {
+    data: PropTypes.object.isRequired
+  };
+
   render() {
     const blog = this.props.data.contentfulBlog;
     const { id, title, slug, heroImage, content } = blog;
@@ -42,8 +42,6 @@ class BlogTemplate extends React.Component {
     );
   }
 }
-
-BlogTemplate.propTypes = propTypes;
 
 export default BlogTemplate;
 

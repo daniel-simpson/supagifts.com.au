@@ -17,11 +17,13 @@ class Footer extends React.PureComponent {
         <ul>
           {menuItems.map(m => (
             <li key={m.id}>
-              ( m.slug ? <Link to={m.slug}>{m.title}</Link>
-              :<a href={m.url} target="_blank">
-                {m.title}
-              </a>
-              )
+              {m.slug ? (
+                <Link to={m.slug}>{m.title}</Link>
+              ) : (
+                <a href={m.url} target="_blank">
+                  {m.title}
+                </a>
+              )}
             </li>
           ))}
         </ul>

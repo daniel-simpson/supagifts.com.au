@@ -23,7 +23,7 @@ class TemplateWrapper extends React.PureComponent {
     const headerMenuItems = [
       {
         id: "about",
-        title: "About Supagifts",
+        title: "about us",
         slug: "/about-us"
       },
       {
@@ -75,11 +75,7 @@ class TemplateWrapper extends React.PureComponent {
     return (
       <div id="outer-container">
         <Helmet
-          title="Postpeople.tv"
-          meta={[
-            { name: "description", content: "Sample" },
-            { name: "keywords", content: "sample, something" }
-          ]}
+          title="supa gifts australia"
           link={[
             {
               rel: "stylesheet",
