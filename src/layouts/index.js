@@ -53,12 +53,12 @@ class TemplateWrapper extends React.PureComponent {
       {
         id: "privacy",
         title: "Privacy Policy",
-        slug: "/"
+        slug: "/privacypolicy.htm"
       },
       {
         id: "terms",
         title: "Terms and Conditions",
-        slug: "/"
+        slug: "/terms-and-conditions"
       },
       {
         id: "instagram",
