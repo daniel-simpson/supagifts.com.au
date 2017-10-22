@@ -33,7 +33,7 @@ class TemplateWrapper extends React.PureComponent {
           return {
             id: j.node.id,
             title: j.node.name,
-            slug: j.node.slug
+            slug: `/boxes/${j.node.slug}`
           };
         })
       },

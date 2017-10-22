@@ -110,9 +110,44 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     });
   };
 
+  var generateBoxPages = (resolve, reject) => {
+    graphql(
+      `
+        {
+          allContentfulGiftBox {
+            edges {
+              node {
+                id
+                slug
+              }
+            }
+          }
+        }
+      `
+    ).then(result => {
+      if (result.errors) {
+        reject(result.errors);
+      }
+
+      const boxTemplate = path.resolve(`./src/templates/boxes.js`);
+      _.each(result.data.allContentfulGiftBox.edges, edge => {
+        createPage({
+          path: `/boxes/${edge.node.slug}`,
+          component: slash(boxTemplate),
+          context: {
+            id: edge.node.id
+          }
+        });
+      });
+
+      resolve();
+    });
+  };
+
   return Promise.all([
     new Promise(generateBlogPages),
     new Promise(generateContentPages),
-    new Promise(generateFormPages)
+    new Promise(generateFormPages),
+    new Promise(generateBoxPages)
   ]);
 };
