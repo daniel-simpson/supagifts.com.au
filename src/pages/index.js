@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 
+import HeroBanner from "../components/HeroBanner";
+
 class IndexPage extends React.PureComponent {
   static propTypes = {
     data: PropTypes.object.isRequired
@@ -13,7 +15,15 @@ class IndexPage extends React.PureComponent {
     blogs.reverse();
     blogs = blogs.slice(0, 5);
 
-    return <div>{blogs.map(b => <li key={b.id}>{b.title}</li>)}</div>;
+    return (
+      <div>
+        <HeroBanner imageUrl="/assets/images/logo.png">
+          <h1>supa gifts australia</h1>
+        </HeroBanner>
+
+        <div>Home page, baby!</div>
+      </div>
+    );
   }
 }
 

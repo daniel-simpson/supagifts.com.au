@@ -68,7 +68,7 @@ class TemplateWrapper extends React.PureComponent {
       {
         id: "contact",
         title: "Contact",
-        slug: "/"
+        slug: "/contact"
       }
     ];
 
