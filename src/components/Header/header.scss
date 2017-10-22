@@ -1,0 +1,28 @@
+header {
+  nav.header-navigation {
+    display: flex;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  //Mobile & tablet only
+  @media (max-width: 959px) {
+    nav.header-navigation {
+      display: none;
+    }
+  }
+
+  //Desktop only
+  @media (min-width: 960px) {
+    .bm-burger-button {
+      display: none;
+    }
+
+    h2 {
+      font-size: 50px;
+    }
+  }
+}

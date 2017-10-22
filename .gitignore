@@ -1,9 +1,6 @@
 node_modules/
 
-public/**/*.html
-public/**/*.css
-public/**/*.js
+.cache
+public/
 
-src/data.json
-
-Design/*
+Design/

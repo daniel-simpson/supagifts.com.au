@@ -1,0 +1,26 @@
+.dropdown-menu {
+  position: relative;
+  display: inline-block;
+
+  ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0;
+    padding: 1rem;
+    width: 300px;
+
+    background-color: white;
+
+    li {
+      display: block;
+    }
+  }
+
+  &:hover {
+    ul {
+      display: initial;
+    }
+  }
+}

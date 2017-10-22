@@ -1,16 +1,22 @@
-@import "_mixins";
-@import "_palette";
+@import "./_mixins";
+@import "./_palette";
 
 * {
   color: $primary-dark;
-  font-family: 'museo-sans', sans-serif;
+  font-family: "museo-sans", sans-serif;
 }
 
-h1, h2, h3, h4, h5 ,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: serif;
 }
 
-ul, ol {
+ul,
+ol {
   li {
     list-style: none;
   }
@@ -29,7 +35,7 @@ body {
   width: 100%;
   color: $primary-dark;
   background-color: white;
-  
+
   &:before {
     content: "";
     position: fixed;
@@ -39,8 +45,8 @@ body {
     top: 0;
     bottom: 0;
     z-index: -1;
-    background-color: $primary-light;
-    background-image: url('https://source.unsplash.com/featured/?coffee,tea');
+    background-color: white;
+    //background-image: url("https://source.unsplash.com/featured/?coffee,tea");
     background-size: cover;
     filter: blur(4px) brightness(1);
   }
@@ -50,24 +56,25 @@ header {
   height: 15vh;
   width: 100%;
   background-color: $primary-light;
-  
+
   .header-scaffold {
     display: grid;
     height: 100%;
     grid-template-columns: 1fr 2fr;
-    
+
     a.logo {
       grid-column: 1;
     }
 
     ul.menu {
       grid-column: 2;
-      margin: auto 0 ;
+      margin: auto 0;
       align-items: center;
       justify-self: end;
       text-align: right;
 
-      p, blockquote {
+      p,
+      blockquote {
         margin-bottom: 0;
       }
     }
@@ -98,7 +105,8 @@ header {
   align-items: center;
   position: relative;
 
-  blockquote, p {
+  blockquote,
+  p {
     text-align: center;
   }
 }
@@ -107,7 +115,7 @@ header {
   padding: $gutter;
   background-color: white;
   text-align: center;
-  
+
   > div {
     border-radius: 5px;
     background-color: $primary-light;
@@ -130,4 +138,12 @@ button {
   color: white;
 
   @include animated-drop-shadow(4);
+}
+
+footer {
+  background-color: $primary-dark;
+  color: white;
+  a {
+    color: white;
+  }
 }

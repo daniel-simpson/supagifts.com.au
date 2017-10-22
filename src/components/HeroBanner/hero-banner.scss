@@ -1,0 +1,29 @@
+.hero-image {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  width: 100%;
+
+  background-size: cover;
+  background-position: 50% 50%;
+  min-height: 50vh;
+
+  margin-bottom: 1rem;
+
+  > div {
+    margin: 1rem;
+
+    > h1 {
+      font-size: 50px;
+    }
+
+    @media (min-width: 960px) {
+      margin: 2rem;
+
+      > h1 {
+        font-size: 80px;
+      }
+    }
+  }
+}
