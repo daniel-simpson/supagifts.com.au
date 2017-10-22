@@ -2,25 +2,26 @@ import React from "react";
 import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 
+import HeroBanner from "../components/HeroBanner";
+
 class ContentPageTemplate extends React.Component {
   static propTypes = {
     data: PropTypes.object.isRequired
   };
   render() {
-    const contentPage = this.props.data.contentfulContentPage;
-    const { id, title, slug, content } = contentPage;
+    const {
+      id,
+      title,
+      heroImage,
+      content
+    } = this.props.data.contentfulContentPage;
+
+    console.log(this.props.data.contentfulContentPage);
     return (
       <div>
-        <div
-          style={{
-            display: `flex`,
-            alignItems: `center`
-          }}
-        >
-          <div>
-            <h1>{title}</h1>
-          </div>
-        </div>
+        <HeroBanner imageUrl="">
+          <h1>{title}</h1>
+        </HeroBanner>
 
         <div
           dangerouslySetInnerHTML={{
@@ -38,8 +39,12 @@ export const pageQuery = graphql`
   query contentPageQuery($id: String!) {
     contentfulContentPage(id: { eq: $id }) {
       id
-      slug
       title
+      heroImage {
+        file {
+          url
+        }
+      }
       content {
         id
         childMarkdownRemark {
