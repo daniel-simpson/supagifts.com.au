@@ -23,7 +23,7 @@
     "contentful": "^4.6.1",
     "contentful-data": "^1.2.0",
     "eslint": "^4.9.0",
-    "gatsby": "^1.9.70",
+    "gatsby": "^1.9.82",
     "gatsby-image": "^1.0.12",
     "gatsby-link": "^1.6.15",
     "gatsby-plugin-google-analytics": "latest",

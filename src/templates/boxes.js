@@ -8,6 +8,7 @@ class BoxPageTemplate extends React.Component {
   static propTypes = {
     data: PropTypes.object.isRequired
   };
+
   render() {
     const {
       id,
@@ -17,11 +18,11 @@ class BoxPageTemplate extends React.Component {
       content
     } = this.props.data.contentfulGiftBox;
 
-    console.log(images);
+    const heroImage = images && images.length ? images[0].file.url : "";
 
     return (
       <div>
-        <HeroBanner imageUrl={images[0].file.url}>
+        <HeroBanner imageUrl={heroImage}>
           <div>
             <h1>
               {name} - ${price}

@@ -6,7 +6,7 @@ import "./hero-banner.scss";
 
 class HeroBanner extends React.PureComponent {
   static propTypes = {
-    imageUrl: PropTypes.string.isRequired
+    imageUrl: PropTypes.string
   };
 
   render() {
@@ -16,7 +16,7 @@ class HeroBanner extends React.PureComponent {
       <div
         className="hero-image"
         style={{
-          backgroundImage: `url(${imageUrl})`
+          backgroundImage: imageUrl ? `url(${imageUrl})` : ""
         }}
       >
         {children}
