@@ -86,12 +86,6 @@ class TemplateWrapper extends React.PureComponent {
         />
 
         <Headroom>
-          <HamburgerMenu
-            outerContainerId="outer-container"
-            pageWrapId="page-wrap"
-            menuItems={headerMenuItems}
-          />
-
           <Header menuItems={headerMenuItems} />
         </Headroom>
 
