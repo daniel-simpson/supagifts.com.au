@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
+import Headroom from "react-headroom";
 
 import Header from "../components/Header";
 import HamburgerMenu from "../components/HamburgerMenu";
@@ -84,13 +85,15 @@ class TemplateWrapper extends React.PureComponent {
           ]}
         />
 
-        <HamburgerMenu
-          outerContainerId="outer-container"
-          pageWrapId="page-wrap"
-          menuItems={headerMenuItems}
-        />
+        <Headroom>
+          <HamburgerMenu
+            outerContainerId="outer-container"
+            pageWrapId="page-wrap"
+            menuItems={headerMenuItems}
+          />
 
-        <Header menuItems={headerMenuItems} />
+          <Header menuItems={headerMenuItems} />
+        </Headroom>
 
         <main
           id="page-wrap"

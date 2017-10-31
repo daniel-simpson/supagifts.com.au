@@ -37,6 +37,7 @@
     "lunr": "^2.1.2",
     "node-sass": "^4.5.3",
     "react-burger-menu": "^2.1.9",
+    "react-headroom": "^2.2.2",
     "react-typography": "^0.15.0"
   },
   "devDependencies": {
