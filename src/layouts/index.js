@@ -75,15 +75,7 @@ class TemplateWrapper extends React.PureComponent {
 
     return (
       <div id="outer-container">
-        <Helmet
-          title="supa gifts australia"
-          link={[
-            {
-              rel: "stylesheet",
-              href: "https://fonts.googleapis.com/css?family=Nunito|Raleway"
-            }
-          ]}
-        />
+        <Helmet title="supa gifts australia" />
 
         <Headroom>
           <Header menuItems={headerMenuItems} />
