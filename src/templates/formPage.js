@@ -4,6 +4,7 @@ import * as PropTypes from "prop-types";
 
 import HeroBanner from "../components/HeroBanner";
 import PaperformEmbed from "../components/PaperformEmbed";
+import Wysiwyg from "../components/Wysiwyg";
 
 class FormPageTemplate extends React.Component {
   static propTypes = {
@@ -17,6 +18,8 @@ class FormPageTemplate extends React.Component {
       paperformEmbedId
     } = this.props.data.contentfulFormPage;
 
+    console.log("Paperform id:", paperformEmbedId);
+
     return (
       <div>
         <HeroBanner imageUrl="">
@@ -25,12 +28,7 @@ class FormPageTemplate extends React.Component {
           </div>
         </HeroBanner>
 
-        <div
-          dangerouslySetInnerHTML={{
-            __html: content.childMarkdownRemark.html
-          }}
-        />
-
+        <Wysiwyg content={content} />
         <PaperformEmbed id={paperformEmbedId} />
       </div>
     );
@@ -43,15 +41,12 @@ export const pageQuery = graphql`
   query formPageQuery($id: String!) {
     contentfulFormPage(id: { eq: $id }) {
       title
+      paperformEmbedId
       content {
-        id
         childMarkdownRemark {
-          id
-          timeToRead
           html
         }
       }
-      paperformEmbedId
     }
   }
 `;

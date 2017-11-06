@@ -3,6 +3,7 @@ import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 
 import HeroBanner from "../components/HeroBanner";
+import Wysiwyg from "../components/Wysiwyg";
 
 class ContentPageTemplate extends React.Component {
   static propTypes = {
@@ -23,11 +24,7 @@ class ContentPageTemplate extends React.Component {
           <h1>{title}</h1>
         </HeroBanner>
 
-        <div
-          dangerouslySetInnerHTML={{
-            __html: content.childMarkdownRemark.html
-          }}
-        />
+        <Wysiwyg content={content} />
       </div>
     );
   }

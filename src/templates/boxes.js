@@ -3,6 +3,7 @@ import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 
 import HeroBanner from "../components/HeroBanner";
+import Wysiwyg from "../components/Wysiwyg";
 
 class BoxPageTemplate extends React.Component {
   static propTypes = {
@@ -30,11 +31,7 @@ class BoxPageTemplate extends React.Component {
           </div>
         </HeroBanner>
 
-        <div
-          dangerouslySetInnerHTML={{
-            __html: content.childMarkdownRemark.html
-          }}
-        />
+        <Wysiwyg content={content} />
       </div>
     );
   }
