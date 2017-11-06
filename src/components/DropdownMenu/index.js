@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 
-import "./dropdown-menu.scss";
+import styles from "./dropdown-menu.module.scss";
 
 class DropdownMenu extends React.PureComponent {
   static propTypes = {
@@ -13,9 +13,9 @@ class DropdownMenu extends React.PureComponent {
     const { id, title, children } = this.props.data;
 
     return (
-      <div className="dropdown-menu">
+      <div className={styles.dropdown_wrapper}>
         <div>{title}</div>
-        <ul>
+        <ul className={styles.dropdown}>
           {children.map(c => (
             <li key={c.id}>
               <Link to={c.slug}>{c.title}</Link>
