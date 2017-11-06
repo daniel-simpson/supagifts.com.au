@@ -5,7 +5,7 @@ import styles from "./wysiwyg.module.scss";
 
 class Wysiwyg extends React.PureComponent {
   static propTypes = {
-    content: PropTypes.object.isRequired
+    content: PropTypes.object
   };
 
   render() {

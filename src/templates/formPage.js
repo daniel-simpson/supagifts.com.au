@@ -14,15 +14,14 @@ class FormPageTemplate extends React.Component {
   render() {
     const {
       title,
+      heroImage,
       content,
       paperformEmbedId
     } = this.props.data.contentfulFormPage;
 
-    console.log("Paperform id:", paperformEmbedId);
-
     return (
       <div>
-        <HeroBanner imageUrl="">
+        <HeroBanner imageUrl={heroImage.file.url}>
           <div>
             <h1>{title}</h1>
           </div>
@@ -41,12 +40,17 @@ export const pageQuery = graphql`
   query formPageQuery($id: String!) {
     contentfulFormPage(id: { eq: $id }) {
       title
-      paperformEmbedId
+      heroImage {
+        file {
+          url
+        }
+      }
       content {
         childMarkdownRemark {
           html
         }
       }
+      paperformEmbedId
     }
   }
 `;
