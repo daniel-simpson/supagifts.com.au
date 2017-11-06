@@ -9,9 +9,14 @@ class PaperformEmbed extends React.PureComponent {
   };
 
   render() {
+    const id = this.props.id;
+
     return (
       <div>
-        <div data-paperform-id="{id}" />
+        <Helmet>
+          <script src="https://paperform.co/__embed" />
+        </Helmet>
+        <div data-paperform-id={id} />
       </div>
     );
   }
