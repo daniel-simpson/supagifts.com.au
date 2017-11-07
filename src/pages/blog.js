@@ -80,6 +80,7 @@ export const pageQuery = graphql`
     allContentfulBlog {
       edges {
         node {
+          id
           slug
           title
           createdAt
