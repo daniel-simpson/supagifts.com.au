@@ -72,17 +72,15 @@ class TemplateWrapper extends React.PureComponent {
     ];
 
     return (
-      <div id="outer-container">
+      <div>
         <Helmet title="supa gifts australia" />
-
         <Header menuItems={headerMenuItems} />
 
         <main
-          id="page-wrap"
           style={{
             margin: "0 auto",
-            maxWidth: 960,
-            padding: "0px 1.0875rem 5rem",
+            //maxWidth: 960,
+            //padding: "0px 1.0875rem 5rem",
             paddingTop: 0
           }}
         >
