@@ -20,13 +20,7 @@ class FormPageTemplate extends React.Component {
     } = this.props.data.contentfulFormPage;
 
     return (
-      <div
-        style={{
-          margin: "0 auto",
-          maxWidth: 960,
-          padding: "0px 1.0875rem 5rem"
-        }}
-      >
+      <div className="container">
         <HeroBanner imageUrl={heroImage.file.url}>
           <div>
             <h1>{title}</h1>

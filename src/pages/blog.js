@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
+import classNames from "classnames";
 
 import TimeToRead from "../components/TimeToRead";
 
@@ -9,20 +10,56 @@ class BlogListingPage extends React.PureComponent {
     data: PropTypes.object.isRequired
   };
 
-  render() {
-    let blogs = this.props.data.allContentfulBlog.edges.map(b => b.node);
+  constructor(props) {
+    super(props);
 
+    let blogs = props.data.allContentfulBlog.edges.map(b => b.node);
     blogs.sort(b => b.createdAt);
     blogs.reverse();
 
+    this.state = {
+      blogs: blogs,
+      page: 1,
+      pageSize: 10
+    };
+
+    this.setPage = page => {
+      this.setState({ page: page });
+    };
+  }
+
+  render() {
+    const pageStart = (this.state.page - 1) * this.state.pageSize;
+    const pageEnd = pageStart + this.state.pageSize;
+    const paginatedBlogs = this.state.blogs.slice(pageStart, pageEnd);
+
+    let pagination = null;
+    if (this.state.blogs.length > this.state.pageSize) {
+      let pageArray = [];
+      for (var i = 1; i <= this.state.blogs.length / this.state.pageSize; i++) {
+        pageArray.push(i);
+      }
+
+      pagination = (
+        <ol className="pagination">
+          {pageArray.map(p => (
+            <div
+              key={p}
+              onClick={this.setPage.bind(this, p)}
+              className={classNames({
+                pagination_page: true,
+                pagination_selected: p === this.state.page
+              })}
+            >
+              {p}
+            </div>
+          ))}
+        </ol>
+      );
+    }
+
     return (
-      <div
-        style={{
-          margin: "0 auto",
-          maxWidth: 960,
-          padding: "1rem 1.0875rem 5rem"
-        }}
-      >
+      <div className="container">
         <h1>Blog</h1>
         <p>
           Ham hock prosciutto salami venison pastrami flank. Sausage leberkäse
@@ -32,7 +69,7 @@ class BlogListingPage extends React.PureComponent {
           loin. (From http://baconipsum.com/)
         </p>
         <ul>
-          {blogs.map(b => (
+          {paginatedBlogs.map(b => (
             <li key={b.id}>
               <Link
                 to={`/blog/${b.slug}`}
@@ -68,6 +105,7 @@ class BlogListingPage extends React.PureComponent {
             </li>
           ))}
         </ul>
+        {pagination}
       </div>
     );
   }

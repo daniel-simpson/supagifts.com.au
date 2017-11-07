@@ -20,6 +20,7 @@
   },
   "homepage": "https://gitlab.com/Postpeople.tv/Website#README",
   "dependencies": {
+    "classnames": "^2.2.5",
     "contentful": "^4.6.1",
     "contentful-data": "^1.2.0",
     "eslint": "^4.9.0",

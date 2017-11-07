@@ -135,3 +135,22 @@ footer {
     color: white;
   }
 }
+
+.pagination {
+  .pagination_page {
+    display: inline-block;
+    margin-right: 1rem;
+
+    cursor: pointer;
+
+    &.pagination_selected {
+      color: $primary-accent;
+    }
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1rem 1.0875rem 5rem;
+}
