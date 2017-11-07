@@ -19,7 +19,10 @@ class BoxPageTemplate extends React.Component {
       ? `$${this.props.data.contentfulGiftBox.price}`
       : "";
 
-    const heroImage = images && images.length ? images[0].file.url : "";
+    const heroImage =
+      images && images.length
+        ? `${images[0].file.url}?w=800&fm=jpg&fl=progressive`
+        : "";
 
     return (
       <div className={style.boxpage_wrapper}>

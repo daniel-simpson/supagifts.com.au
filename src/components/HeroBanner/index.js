@@ -13,14 +13,16 @@ class HeroBanner extends React.PureComponent {
     const { imageUrl, children } = this.props;
 
     if (!imageUrl) {
-      return <div style={{ paddingTop: "1rem" }}>{children}</div>;
+      return <div style={{ marginTop: "1rem" }}>{children}</div>;
     }
+
+    const imageSrc = `url(${imageUrl}?w=960&fm=jpg&fl=progressive)`;
 
     return (
       <div
         className={styles.hero}
         style={{
-          backgroundImage: imageUrl ? `url(${imageUrl})` : ""
+          backgroundImage: imageSrc
         }}
       >
         {children}
