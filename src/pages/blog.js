@@ -8,7 +8,7 @@ class BlogListingPage extends React.PureComponent {
   };
 
   render() {
-    const blogs = this.props.data.allContentfulBlog.edges.map(b => b.node);
+    let blogs = this.props.data.allContentfulBlog.edges.map(b => b.node);
 
     blogs.sort(b => b.createdAt);
     blogs.reverse();
@@ -21,10 +21,34 @@ class BlogListingPage extends React.PureComponent {
           padding: "1rem 1.0875rem 5rem"
         }}
       >
+        <h1>Blog</h1>
+        <p>
+          Ham hock prosciutto salami venison pastrami flank. Sausage leberkäse
+          flank t-bone meatball kielbasa, strip steak ham pork loin turkey swine
+          cow tenderloin jowl. Venison pig kielbasa meatball, rump pork loin
+          chicken hamburger salami bresaola sausage meatloaf ham chuck short
+          loin. (From http://baconipsum.com/)
+        </p>
         <ul>
           {blogs.map(b => (
             <li key={b.id}>
-              <Link to={`/blog/${b.slug}`}>{b.title}</Link>
+              <Link to={`/blog/${b.slug}`}>
+                <div
+                  style={{
+                    display: "flex"
+                  }}
+                >
+                  <img src={`${b.heroImage.file.url}?h=100&w=150&fit=fill`} />
+                  <div
+                    style={{
+                      padding: "1rem"
+                    }}
+                  >
+                    <div>{b.title}</div>
+                    <div>{b.content.childMarkdownRemark.excerpt}</div>
+                  </div>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
@@ -40,13 +64,20 @@ export const pageQuery = graphql`
     allContentfulBlog {
       edges {
         node {
-          id
           slug
           title
           createdAt
+          heroImage {
+            file {
+              url
+            }
+          }
           content {
+            id
             childMarkdownRemark {
+              id
               timeToRead
+              excerpt
             }
           }
         }
