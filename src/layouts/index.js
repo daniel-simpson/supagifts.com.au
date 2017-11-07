@@ -52,7 +52,7 @@ class TemplateWrapper extends React.PureComponent {
       {
         id: "privacy",
         title: "Privacy Policy",
-        slug: "/privacypolicy.htm"
+        slug: "/privacy-policy"
       },
       {
         id: "terms",
