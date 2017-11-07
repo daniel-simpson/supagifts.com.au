@@ -1,0 +1,13 @@
+.blockview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 80vh;
+  width: 100vw;
+
+  @media (min-width: 960px) {
+    height: 50vh;
+    width: 50vw;
+  }
+}
