@@ -14,8 +14,6 @@ class BlogListingPage extends React.PureComponent {
     super(props);
 
     let blogs = props.data.allContentfulBlog.edges.map(b => b.node);
-    blogs.sort(b => b.createdAt);
-    blogs.reverse();
 
     this.state = {
       blogs: blogs,
@@ -115,7 +113,7 @@ export default BlogListingPage;
 
 export const pageQuery = graphql`
   query blogListQuery {
-    allContentfulBlog {
+    allContentfulBlog(sort: { fields: [createdAt___date], order: DESC }) {
       edges {
         node {
           id

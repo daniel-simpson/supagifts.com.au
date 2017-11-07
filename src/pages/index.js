@@ -11,11 +11,6 @@ class IndexPage extends React.PureComponent {
   };
 
   render() {
-    let blogs = this.props.data.allContentfulBlog.edges.map(b => b.node);
-    blogs.sort(b => b.createdAt);
-    blogs.reverse();
-    blogs = blogs.slice(0, 5);
-
     let blocks = [
       {
         id: "receive-start",
