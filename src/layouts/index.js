@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
-import Headroom from "react-headroom";
 
 import Header from "../components/Header";
 import HamburgerMenu from "../components/HamburgerMenu";
@@ -23,7 +22,7 @@ class TemplateWrapper extends React.PureComponent {
     const headerMenuItems = [
       {
         id: "about",
-        title: "about us",
+        title: "About Us",
         slug: "/about-us"
       },
       {
@@ -76,9 +75,7 @@ class TemplateWrapper extends React.PureComponent {
       <div id="outer-container">
         <Helmet title="supa gifts australia" />
 
-        <Headroom>
-          <Header menuItems={headerMenuItems} />
-        </Headroom>
+        <Header menuItems={headerMenuItems} />
 
         <main
           id="page-wrap"

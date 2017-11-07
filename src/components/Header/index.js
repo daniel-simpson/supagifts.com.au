@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
+import Headroom from "react-headroom";
 
 import DropdownMenu from "../DropdownMenu";
 
@@ -11,79 +12,143 @@ class Header extends React.PureComponent {
     menuItems: PropTypes.array.isRequired
   };
 
+  constructor() {
+    super();
+    this.state = { mobileMenuOpen: false };
+  }
+
+  showMobileNav = () => {
+    this.setState({ mobileMenuOpen: true });
+  };
+
+  hideMobileNav = () => {
+    this.setState({ mobileMenuOpen: false });
+  };
+
   render() {
     const { menuItems } = this.props;
 
-    return (
-      <header
-        style={{
-          marginBottom: "1rem"
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            position: "relative",
+    const headerNavItems = null;
 
-            margin: "0 auto",
-            maxWidth: "960px"
+    return (
+      <div>
+        <Headroom>
+          <header className="header">
+            <div>
+              <Link
+                to="/"
+                style={{
+                  color: "white",
+                  textDecoration: "none",
+                  margin: 0
+                }}
+              >
+                <h2
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: "0"
+                  }}
+                >
+                  <img
+                    alt="Supagifts"
+                    src="/assets/images/logo_and_tagline.png"
+                    style={{
+                      height: "6rem",
+                      marginBottom: "0"
+                    }}
+                  />
+                </h2>
+              </Link>
+
+              <nav className="header_navigation">
+                <ul
+                  style={{
+                    marginBottom: "0"
+                  }}
+                >
+                  {menuItems.map(m => (
+                    <li
+                      key={m.id}
+                      style={{
+                        display: "inline-block",
+                        marginRight: "1rem",
+                        marginBottom: "0"
+                      }}
+                    >
+                      {m.children && m.children.length ? (
+                        <DropdownMenu data={m} />
+                      ) : (
+                        <Link to={m.slug}>{m.title}</Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <div
+                className="mobile_nav__trigger_open"
+                onClick={this.showMobileNav.bind(this)}
+              >
+                Menu
+              </div>
+            </div>
+          </header>{" "}
+        </Headroom>
+
+        <div
+          className="mobile_nav_wrapper"
+          style={{
+            display: this.state.mobileMenuOpen ? "" : "none"
           }}
+          onClick={this.hideMobileNav.bind(this)}
         >
-          <Link
-            to="/"
-            style={{
-              color: "white",
-              textDecoration: "none",
-              margin: 0
+          <nav
+            className="mobile_navigation"
+            onClick={e => {
+              e.stopPropagation();
             }}
           >
-            <h2
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: "0"
-              }}
+            <a
+              className="mobile_nav__trigger_close"
+              onClick={this.hideMobileNav.bind(this)}
             >
-              <img
-                alt="Supagifts"
-                src="/assets/images/logo_and_tagline.png"
-                style={{
-                  height: "6rem",
-                  marginBottom: "0"
-                }}
-              />
-            </h2>
-          </Link>
-
-          <nav className="header-navigation">
-            <ul
-              style={{
-                marginBottom: "0"
-              }}
-            >
+              Close
+            </a>
+            <ul>
               {menuItems.map(m => (
                 <li
                   key={m.id}
                   style={{
-                    display: "inline-block",
                     marginRight: "1rem",
                     marginBottom: "0"
                   }}
                 >
-                  {m.children && m.children.length ? (
-                    <DropdownMenu data={m} />
+                  {m.children && m.children.length > 0 ? (
+                    <ul>
+                      {m.children.map(n => {
+                        <li key={n.id}>
+                          <Link
+                            to={n.slug}
+                            onClick={this.hideMobileNav.bind(this)}
+                          >
+                            {n.title}
+                          </Link>
+                        </li>;
+                      })}
+                    </ul>
                   ) : (
-                    <Link to={m.slug}>{m.title}</Link>
+                    <Link to={m.slug} onClick={this.hideMobileNav.bind(this)}>
+                      {m.title}
+                    </Link>
                   )}
                 </li>
               ))}
             </ul>
           </nav>
         </div>
-      </header>
+      </div>
     );
   }
 }
