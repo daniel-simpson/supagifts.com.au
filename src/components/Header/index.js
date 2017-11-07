@@ -89,7 +89,9 @@ class Header extends React.PureComponent {
             </a>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/" className={style.primary}>
+                  Home
+                </Link>
               </li>
               {menuItems.map(m => (
                 <li key={m.id}>

@@ -80,7 +80,8 @@
   min-width: 300px;
   max-width: 90vw;
 
-  background-color: white;
+  background-color: rgba(0.1, 0.1, 0.1, 0.8);
+  color: $primary-light;
 
   top: 0;
   bottom: 0;
@@ -88,4 +89,14 @@
 
   display: flex;
   flex-direction: column;
+
+  span,
+  p,
+  a {
+    color: white;
+
+    &.primary {
+      color: $primary-accent;
+    }
+  }
 }
