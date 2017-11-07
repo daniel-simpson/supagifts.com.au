@@ -8,7 +8,6 @@ import Header from "../components/Header";
 import HamburgerMenu from "../components/HamburgerMenu";
 import Footer from "../components/Footer";
 
-import "../styles/_reset.scss";
 import "../styles/main.scss";
 
 class TemplateWrapper extends React.PureComponent {

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 
-import "./hero-banner.scss";
+import styles from "./hero-banner.module.scss";
 
 class HeroBanner extends React.PureComponent {
   static propTypes = {
@@ -12,9 +12,13 @@ class HeroBanner extends React.PureComponent {
   render() {
     const { imageUrl, children } = this.props;
 
+    if (!imageUrl) {
+      return <div>{children}</div>;
+    }
+
     return (
       <div
-        className="hero-image"
+        className={styles.hero}
         style={{
           backgroundImage: imageUrl ? `url(${imageUrl})` : ""
         }}

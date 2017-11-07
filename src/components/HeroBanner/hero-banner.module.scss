@@ -1,4 +1,4 @@
-.hero-image {
+.hero {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -14,16 +14,8 @@
   > div {
     margin: 1rem;
 
-    > h1 {
-      font-size: 50px;
-    }
-
     @media (min-width: 960px) {
       margin: 2rem;
-
-      > h1 {
-        font-size: 80px;
-      }
     }
   }
 }

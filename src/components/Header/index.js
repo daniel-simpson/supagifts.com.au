@@ -43,27 +43,34 @@ class Header extends React.PureComponent {
               style={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center"
+                justifyContent: "center",
+                marginBottom: "0"
               }}
             >
               <img
                 alt="Supagifts"
                 src="/assets/images/logo_and_tagline.png"
                 style={{
-                  height: "6rem"
+                  height: "6rem",
+                  marginBottom: "0"
                 }}
               />
             </h2>
           </Link>
 
           <nav className="header-navigation">
-            <ul>
+            <ul
+              style={{
+                marginBottom: "0"
+              }}
+            >
               {menuItems.map(m => (
                 <li
                   key={m.id}
                   style={{
                     display: "inline-block",
-                    marginRight: "1rem"
+                    marginRight: "1rem",
+                    marginBottom: "0"
                   }}
                 >
                   {m.children && m.children.length ? (

@@ -1,31 +1,12 @@
 .noContent {
-  height: 2rem;
+  //height: 2rem;
 }
 
 .wysiwyg {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-bottom: 1rem;
-  }
-
-  ul,
-  ol,
-  p,
-  hr {
-    margin-bottom: 1rem;
-  }
-
   ul,
   ol {
-    padding-left: 1rem;
-
     li {
       list-style: initial;
-      margin-bottom: 0.5rem;
     }
   }
 }
