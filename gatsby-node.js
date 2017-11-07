@@ -129,7 +129,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         reject(result.errors);
       }
 
-      const boxTemplate = path.resolve(`./src/templates/boxes.js`);
+      const boxTemplate = path.resolve(`./src/templates/boxes/index.js`);
       _.each(result.data.allContentfulGiftBox.edges, edge => {
         createPage({
           path: `/boxes/${edge.node.slug}`,

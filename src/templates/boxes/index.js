@@ -2,8 +2,10 @@ import React from "react";
 import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 
-import HeroBanner from "../components/HeroBanner";
-import Wysiwyg from "../components/Wysiwyg";
+import HeroBanner from "../../components/HeroBanner";
+import Wysiwyg from "../../components/Wysiwyg";
+
+import style from "./boxes.module.scss";
 
 class BoxPageTemplate extends React.Component {
   static propTypes = {
@@ -11,33 +13,23 @@ class BoxPageTemplate extends React.Component {
   };
 
   render() {
-    const {
-      id,
-      name,
-      images,
-      price,
-      content
-    } = this.props.data.contentfulGiftBox;
+    const { id, name, images, content } = this.props.data.contentfulGiftBox;
+
+    const price = this.props.data.contentfulGiftBox.price
+      ? `$${this.props.data.contentfulGiftBox.price}`
+      : "";
 
     const heroImage = images && images.length ? images[0].file.url : "";
 
     return (
-      <div
-        style={{
-          margin: "0 auto",
-          maxWidth: 960,
-          padding: "0px 1.0875rem 5rem"
-        }}
-      >
-        <HeroBanner imageUrl={heroImage}>
-          <div>
-            <h1>
-              {name} - ${price}
-            </h1>
-          </div>
-        </HeroBanner>
-
-        <Wysiwyg content={content} />
+      <div className={style.boxpage_wrapper}>
+        <img className={style.box_image} src={heroImage} />
+        <div className={style.content}>
+          <h1>
+            {name} {price}
+          </h1>
+          <Wysiwyg content={content} />
+        </div>
       </div>
     );
   }

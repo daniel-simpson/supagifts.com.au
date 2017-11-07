@@ -1,0 +1,22 @@
+.boxpage_wrapper {
+  @media (min-width: 960px) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.box_image {
+  height: auto;
+  @media (min-width: 960px) {
+    display: inline-block;
+    max-width: 50vw;
+    order: 2;
+  }
+}
+
+.content {
+  display: inline-block;
+  min-width: 40vw;
+  padding: 0 1.0875rem 5rem;
+}
