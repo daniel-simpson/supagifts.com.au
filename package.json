@@ -6,7 +6,8 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "format":
+      "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -38,12 +39,10 @@
     "lodash": "^4.16.4",
     "lunr": "^2.1.2",
     "node-sass": "^4.5.3",
-    "react-burger-menu": "^2.1.9",
     "react-headroom": "^2.2.2",
     "react-typography": "^0.15.0",
     "typography": "^0.16.6",
-    "typography-breakpoint-constants": "^0.15.10",
-    "typography-theme-funston": "^0.15.10"
+    "typography-breakpoint-constants": "^0.15.10"
   },
   "devDependencies": {
     "prettier": "^1.6.1"
