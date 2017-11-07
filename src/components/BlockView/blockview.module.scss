@@ -13,6 +13,7 @@
 
   height: 60vh;
   width: 100vw;
+  max-width: 100%;
 
   a {
     max-width: 80%;
@@ -21,5 +22,6 @@
   @media (min-width: 960px) {
     height: 50vh;
     width: 50vw;
+    max-width: 50%;
   }
 }

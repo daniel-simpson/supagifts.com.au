@@ -19,9 +19,14 @@ class FormPageTemplate extends React.Component {
       paperformEmbedId
     } = this.props.data.contentfulFormPage;
 
+    const imageSrc =
+      heroImage && heroImage.file && heroImage.file.url
+        ? heroImage.file.url
+        : "";
+
     return (
       <div className="container">
-        <HeroBanner imageUrl={heroImage.file.url}>
+        <HeroBanner imageUrl={imageSrc}>
           <div>
             <h1>{title}</h1>
           </div>

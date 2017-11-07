@@ -1,8 +1,6 @@
 @import "../../styles/_palette";
 
 .header {
-  margin-bottom: 1rem;
-
   > div {
     display: flex;
     align-items: center;
@@ -64,7 +62,7 @@
 }
 
 .mobile_nav_wrapper {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;

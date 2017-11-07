@@ -17,10 +17,14 @@ class ContentPageTemplate extends React.Component {
       content
     } = this.props.data.contentfulContentPage;
 
-    console.log(this.props.data.contentfulContentPage);
+    const imageSrc =
+      heroImage && heroImage.file && heroImage.file.url
+        ? heroImage.file.url
+        : "";
+
     return (
       <div className="container">
-        <HeroBanner imageUrl="">
+        <HeroBanner imageUrl={imageSrc}>
           <h1>{title}</h1>
         </HeroBanner>
 

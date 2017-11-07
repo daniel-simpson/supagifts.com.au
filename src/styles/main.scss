@@ -134,6 +134,11 @@ footer {
   a {
     color: white;
   }
+
+  display: none;
+  @media (min-width: 960px) {
+    display: initial;
+  }
 }
 
 .pagination {

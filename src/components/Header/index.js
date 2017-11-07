@@ -9,7 +9,8 @@ import style from "./header.module.scss";
 
 class Header extends React.PureComponent {
   static propTypes = {
-    menuItems: PropTypes.array.isRequired
+    menuItems: PropTypes.array.isRequired,
+    footerItems: PropTypes.array
   };
 
   constructor() {
@@ -26,47 +27,43 @@ class Header extends React.PureComponent {
   };
 
   render() {
-    const { menuItems } = this.props;
-
-    const headerNavItems = null;
+    const { menuItems, footerItems } = this.props;
 
     return (
       <div>
-        <Headroom>
-          <header className={style.header}>
-            <div>
-              <Link to="/" className={style.home_link}>
-                <h2>
-                  <img
-                    alt="Supagifts"
-                    src="/assets/images/logo_and_tagline.png"
-                  />
-                </h2>
-              </Link>
+        <header className={style.header}>
+          <div>
+            <Link to="/" className={style.home_link}>
+              <h2>
+                <img
+                  alt="Supagifts"
+                  src="/assets/images/logo_and_tagline.png"
+                />
+              </h2>
+            </Link>
 
-              <nav className={style.header_navigation}>
-                <ul>
-                  {menuItems.map(m => (
-                    <li key={m.id}>
-                      {m.children && m.children.length ? (
-                        <DropdownMenu data={m} />
-                      ) : (
-                        <Link to={m.slug}>{m.title}</Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+            <nav className={style.header_navigation}>
+              <ul>
+                {menuItems.map(m => (
+                  <li key={m.id}>
+                    {m.children && m.children.length ? (
+                      <DropdownMenu data={m} />
+                    ) : (
+                      <Link to={m.slug}>{m.title}</Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-              <div
-                className={style.mobile_nav__trigger_open}
-                onClick={this.showMobileNav.bind(this)}
-              >
-                Menu
-              </div>
+            <div
+              className={style.mobile_nav__trigger_open}
+              onClick={this.showMobileNav.bind(this)}
+            >
+              Menu
             </div>
-          </header>{" "}
-        </Headroom>
+          </div>
+        </header>
 
         <div
           className={style.mobile_nav_wrapper}
@@ -93,7 +90,7 @@ class Header extends React.PureComponent {
                   Home
                 </Link>
               </li>
-              {menuItems.map(m => (
+              {menuItems.concat(footerItems).map(m => (
                 <li key={m.id}>
                   {m.children && m.children.length > 0 ? (
                     <div>

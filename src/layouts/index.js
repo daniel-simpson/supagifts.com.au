@@ -74,7 +74,7 @@ class TemplateWrapper extends React.PureComponent {
     return (
       <div>
         <Helmet title="supa gifts australia" />
-        <Header menuItems={headerMenuItems} />
+        <Header menuItems={headerMenuItems} footerItems={footerMenuItems} />
 
         <main
           style={{
