@@ -6,8 +6,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format":
-      "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +27,7 @@
     "gatsby-image": "^1.0.12",
     "gatsby-link": "^1.6.15",
     "gatsby-plugin-google-analytics": "latest",
+    "gatsby-plugin-google-tagmanager": "^1.0.7",
     "gatsby-plugin-offline": "latest",
     "gatsby-plugin-react-helmet": "^1.0.5",
     "gatsby-plugin-sass": "^1.0.12",

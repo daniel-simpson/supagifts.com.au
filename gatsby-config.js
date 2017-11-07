@@ -20,6 +20,12 @@ module.exports = {
       options: {
         pathToConfigModule: `src/utils/typography.js`
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: `GTM-W5DJ5H6`
+      }
     }
   ]
 };
