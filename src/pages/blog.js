@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 
+import TimeToRead from "../components/TimeToRead";
+
 class BlogListingPage extends React.PureComponent {
   static propTypes = {
     data: PropTypes.object.isRequired
@@ -32,20 +34,34 @@ class BlogListingPage extends React.PureComponent {
         <ul>
           {blogs.map(b => (
             <li key={b.id}>
-              <Link to={`/blog/${b.slug}`}>
+              <Link
+                to={`/blog/${b.slug}`}
+                style={{
+                  textDecoration: "none"
+                }}
+              >
                 <div
                   style={{
-                    display: "flex"
+                    display: "flex",
+                    alignItems: "center"
                   }}
                 >
-                  <img src={`${b.heroImage.file.url}?h=100&w=150&fit=fill`} />
+                  <img
+                    src={`${b.heroImage.file.url}?h=100&w=150&fit=fill`}
+                    style={{ marginBottom: "0", maxWidth: "20vw" }}
+                  />
                   <div
                     style={{
                       padding: "1rem"
                     }}
                   >
-                    <div>{b.title}</div>
-                    <div>{b.content.childMarkdownRemark.excerpt}</div>
+                    <p style={{ marginBottom: 0, textDecoration: "underline" }}>
+                      {b.title}
+                      <TimeToRead content={b.content} />
+                    </p>
+                    <p style={{ marginBottom: 0 }}>
+                      {b.content.childMarkdownRemark.excerpt}
+                    </p>
                   </div>
                 </div>
               </Link>
