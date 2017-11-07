@@ -16,14 +16,24 @@ class IndexPage extends React.PureComponent {
     blogs.reverse();
     blogs = blogs.slice(0, 5);
 
+    let blocks = [
+      {
+        id: "receive-start",
+        title: "I received a supa gift box and would like more information",
+        backgroundColour: "#709F86",
+        link: "/"
+      },
+      {
+        id: "send-start",
+        title: "I would like to send a supa gift box",
+        backgroundColour: "#4F4084",
+        link: "/"
+      }
+    ];
+
     return (
-      <div style={{ display: "flex" }}>
-        <BlockView backgroundColour="#709F86">
-          <Link to="/">I have received a supa gift box</Link>
-        </BlockView>
-        <BlockView backgroundColour="#4F4084">
-          <Link to="/">I would like to send a supa gift box</Link>
-        </BlockView>
+      <div>
+        <BlockView items={blocks} />
       </div>
     );
   }

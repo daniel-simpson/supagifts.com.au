@@ -6,23 +6,26 @@ import style from "./blockview.module.scss";
 
 class BlockView extends React.PureComponent {
   static propTypes = {
-    children: PropTypes.object.isRequired,
-    backgroundColour: PropTypes.string
+    items: PropTypes.array.isRequired
   };
 
   render() {
-    const { children, backgroundColour } = this.props;
+    const { items } = this.props;
 
-    return (
+    const blocks = items.map(i => (
       <div
+        id={i.id}
+        key={i.id}
         className={style.blockview}
-        style={{
-          backgroundColor: backgroundColour
-        }}
+        style={{ backgroundColor: i.backgroundColour }}
       >
-        {children}
+        <Link to={i.link}>
+          <span>{i.title}</span>
+        </Link>
       </div>
-    );
+    ));
+
+    return <div className={style.blockview_wrapper}>{blocks}</div>;
   }
 }
 
