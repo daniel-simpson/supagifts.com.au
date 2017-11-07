@@ -14,7 +14,13 @@ class BlogTemplate extends React.Component {
     const blog = this.props.data.contentfulBlog;
     const { id, title, slug, heroImage, content } = blog;
     return (
-      <div>
+      <div
+        style={{
+          margin: "0 auto",
+          maxWidth: 960,
+          padding: "0px 1.0875rem 5rem"
+        }}
+      >
         <div
           style={{
             display: `flex`,

@@ -22,7 +22,13 @@ class BoxPageTemplate extends React.Component {
     const heroImage = images && images.length ? images[0].file.url : "";
 
     return (
-      <div>
+      <div
+        style={{
+          margin: "0 auto",
+          maxWidth: 960,
+          padding: "0px 1.0875rem 5rem"
+        }}
+      >
         <HeroBanner imageUrl={heroImage}>
           <div>
             <h1>

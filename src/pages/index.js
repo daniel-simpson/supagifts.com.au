@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Link from "gatsby-link";
 
 import HeroBanner from "../components/HeroBanner";
+import BlockView from "../components/BlockView";
 
 class IndexPage extends React.PureComponent {
   static propTypes = {
@@ -16,12 +17,13 @@ class IndexPage extends React.PureComponent {
     blogs = blogs.slice(0, 5);
 
     return (
-      <div>
-        <HeroBanner imageUrl="/assets/images/logo.png">
-          <h1>supa gifts australia</h1>
-        </HeroBanner>
-
-        <div>Home page, baby!</div>
+      <div style={{ display: "flex" }}>
+        <BlockView backgroundColour="#709F86">
+          <Link to="/">I have received a supa gift box</Link>
+        </BlockView>
+        <BlockView backgroundColour="#4F4084">
+          <Link to="/">I would like to send a supa gift box</Link>
+        </BlockView>
       </div>
     );
   }
