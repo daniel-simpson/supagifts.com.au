@@ -113,7 +113,7 @@ export default BlogListingPage;
 
 export const pageQuery = graphql`
   query blogListQuery {
-    allContentfulBlog(sort: { fields: [createdAt___date], order: DESC }) {
+    allContentfulBlog {
       edges {
         node {
           id
