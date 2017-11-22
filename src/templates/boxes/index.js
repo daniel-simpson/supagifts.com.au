@@ -27,7 +27,7 @@ class BoxPageTemplate extends React.Component {
     return (
       <div className={style.boxpage_wrapper}>
         <img className={style.box_image} src={heroImage} />
-        <div className={style.content}>
+        <div className={`${style.content} content-container`}>
           <h1>
             {name} {price}
           </h1>
