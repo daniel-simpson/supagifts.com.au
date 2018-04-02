@@ -5,7 +5,7 @@ import { MOBILE_MEDIA_QUERY } from "typography-breakpoint-constants";
 
 const theme: OptionsType = {
   title: "Funston",
-  baseFontSize: "20px",
+  baseFontSize: "16px",
   baseLineHeight: 1.5,
   googleFonts: [
     {
