@@ -20,7 +20,7 @@ body {
 
 header {
   width: 100%;
-  background-color: $primary-light;
+  background-color: white; //$primary-light;
 
   .header-scaffold {
     display: grid;
@@ -67,10 +67,16 @@ footer,
 main {
   background: url(/assets/images/SG_103-Pattern.png);
   background-repeat: repeat;
+  height: calc(100vh - 120px);
 }
 
-.container, .content-container {
+.container,
+.content-container {
   background: rgba(255, 255, 255, 0.9);
+
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 1rem 1.0875rem 5rem;
 }
 
 .splashpage {
@@ -125,7 +131,7 @@ footer {
   background-color: $primary-dark;
   background: url(/assets/images/SG_103-Pattern-dark.png);
   background-repeat: repeat;
-  
+
   color: white;
   a {
     color: white;
@@ -148,10 +154,4 @@ footer {
       color: $primary-accent;
     }
   }
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 1rem 1.0875rem 5rem;
 }

@@ -23,12 +23,13 @@ class ContentPageTemplate extends React.Component {
         : "";
 
     return (
-      <div className="container">
+      <div>
         <HeroBanner imageUrl={imageSrc}>
           <h1>{title}</h1>
         </HeroBanner>
-
-        <Wysiwyg content={content} />
+        <div className="container">
+          <Wysiwyg content={content} />
+        </div>
       </div>
     );
   }
