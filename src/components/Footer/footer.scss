@@ -19,6 +19,9 @@ body {
     text-align: center;
     display: block;
     margin-bottom: 0;
+    a {
+      text-decoration: none;
+    }
   }
 
   @media (min-width: 960px) {

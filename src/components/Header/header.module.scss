@@ -39,6 +39,9 @@
   li {
     display: inline-block;
     margin-right: 1rem;
+    a {
+      text-decoration: none;
+    }
   }
 
   //Mobile & tablet only
@@ -49,6 +52,7 @@
 
 .mobile_nav__trigger_open {
   margin-right: 1rem;
+  cursor: pointer;
 
   //Desktop only
   @media (min-width: 960px) {
@@ -58,6 +62,7 @@
 
 .mobile_nav__trigger_close {
   text-align: right;
+  cursor: pointer;
   margin: 1rem;
 }
 
