@@ -76,40 +76,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     });
   };
 
-  var generateFormPages = (resolve, reject) => {
-    graphql(
-      `
-        {
-          allContentfulFormPage {
-            edges {
-              node {
-                id
-                slug
-              }
-            }
-          }
-        }
-      `
-    ).then(result => {
-      if (result.errors) {
-        reject(result.errors);
-      }
-
-      const formPageTemplate = path.resolve(`./src/templates/formPage.js`);
-      _.each(result.data.allContentfulFormPage.edges, edge => {
-        createPage({
-          path: `/${edge.node.slug}`,
-          component: slash(formPageTemplate),
-          context: {
-            id: edge.node.id
-          }
-        });
-      });
-
-      resolve();
-    });
-  };
-
   var generateBoxPages = (resolve, reject) => {
     graphql(
       `
@@ -147,7 +113,22 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   return Promise.all([
     new Promise(generateBlogPages),
     new Promise(generateContentPages),
-    new Promise(generateFormPages),
     new Promise(generateBoxPages)
   ]);
+};
+
+exports.onCreatePage = async ({ page, boundActionCreators }) => {
+  const { createPage } = boundActionCreators;
+
+  return new Promise((resolve, reject) => {
+    if (page.path.match(/^\/buy/)) {
+      // It's assumed that `landingPage.js` exists in the `/layouts/` directory
+      page.layout = "funnel";
+
+      // Update the page.
+      createPage(page);
+    }
+
+    resolve();
+  });
 };

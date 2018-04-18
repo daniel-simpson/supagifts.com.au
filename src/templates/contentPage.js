@@ -3,6 +3,7 @@ import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 
 import HeroBanner from "../components/HeroBanner";
+import PaperformEmbed from "../components/PaperformEmbed";
 import Wysiwyg from "../components/Wysiwyg";
 
 class ContentPageTemplate extends React.Component {
@@ -14,7 +15,8 @@ class ContentPageTemplate extends React.Component {
       id,
       title,
       heroImage,
-      content
+      content,
+      paperformEmbedId
     } = this.props.data.contentfulContentPage;
 
     const imageSrc =
@@ -29,6 +31,7 @@ class ContentPageTemplate extends React.Component {
         </HeroBanner>
         <div className="container">
           <Wysiwyg content={content} />
+          {paperformEmbedId ? <PaperformEmbed id={paperformEmbedId} /> : null}
         </div>
       </div>
     );
@@ -54,6 +57,7 @@ export const pageQuery = graphql`
           html
         }
       }
+      paperformEmbedId
     }
   }
 `;
