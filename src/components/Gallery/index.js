@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
-import Helmet from "react-helmet";
 
 import Wysiwyg from "../Wysiwyg";
 
-import style from "./carousel.module.scss";
+import style from "./gallery.module.scss";
 
-class Carousel extends React.PureComponent {
+class Gallery extends React.PureComponent {
   static propTypes = {
     title: PropTypes.string,
     items: PropTypes.array.isRequired,
@@ -20,23 +19,11 @@ class Carousel extends React.PureComponent {
       return null;
     }
 
-    return (
-      <div className={style.carousel_wrapper}>
-        <Helmet>
-          <link
-            rel="stylesheet"
-            type="text/css"
-            charset="UTF-8"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-          />
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-          />
-        </Helmet>
+    const columns = this.props.columns ? this.props.columns : 4;
 
-        {title ? <h3 className={style.carousel_title}>{title}</h3> : null}
+    return (
+      <div className={style.gallery_wrapper}>
+        {title ? <h3 className={style.gallery_title}>{title}</h3> : null}
         <div
           style={{
             display: "flex",
@@ -50,13 +37,13 @@ class Carousel extends React.PureComponent {
               key={i.key}
               style={{
                 display: "inline-block",
-                minWidth: "25%",
+                minWidth: `calc(99% / ${columns})`,
                 maxWidth: "150px",
                 textAlign: "center"
               }}
             >
               <img src={i.img} />
-              <figcaption className={style.carousel__item_description}>
+              <figcaption className={style.gallery__item_description}>
                 {i.description && i.description.childMarkdownRemark ? (
                   <Wysiwyg content={i.description} />
                 ) : (
@@ -71,4 +58,4 @@ class Carousel extends React.PureComponent {
   }
 }
 
-export default Carousel;
+export default Gallery;

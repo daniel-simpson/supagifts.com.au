@@ -15,8 +15,34 @@
   }
 }
 
+.box_name {
+  color: $primary-dark;
+}
+
 .content {
   display: inline-block;
   min-width: 40vw;
   padding: 1rem 1.0875rem 5rem;
+}
+
+.description {
+  max-height: 0;
+  transition: max-height 0.15s ease-out;
+  overflow: hidden;
+}
+
+.giftBoxItems {
+  padding-bottom: 1em;
+
+  label {
+    cursor: pointer;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"]:checked + .description {
+    max-height: 100px;
+  }
 }

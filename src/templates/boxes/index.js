@@ -2,6 +2,8 @@ import React from "react";
 import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 
+import Carousel from "../../components/Carousel";
+import Gallery from "../../components/Gallery";
 import HeroBanner from "../../components/HeroBanner";
 import Wysiwyg from "../../components/Wysiwyg";
 
@@ -13,7 +15,13 @@ class BoxPageTemplate extends React.Component {
   };
 
   render() {
-    const { id, name, images, content } = this.props.data.contentfulGiftBox;
+    const {
+      id,
+      name,
+      images,
+      content,
+      giftBoxItems
+    } = this.props.data.contentfulGiftBox;
 
     const heroImage =
       images && images.length
@@ -21,11 +29,18 @@ class BoxPageTemplate extends React.Component {
         : "";
 
     return (
-      <div className={style.boxpage_wrapper}>
-        <img className={style.box_image} src={heroImage} />
-        <div className={`${style.content} content-container`}>
-          <h1>{name}</h1>
-          <Wysiwyg content={content} />
+      <div>
+        <div className="container">
+          <div className={style.boxpage_wrapper}>
+            <Carousel items={[{ key: 1, img: heroImage }]} />
+            <div className={`${style.content} content-container`}>
+              <h1 className={style.box_name}>{name}</h1>
+
+              <Wysiwyg content={content} />
+            </div>
+          </div>
+
+          <Gallery title="Whats in the box?" columns="2" items={giftBoxItems} />
         </div>
       </div>
     );
@@ -39,20 +54,25 @@ export const pageQuery = graphql`
     contentfulGiftBox(id: { eq: $id }) {
       id
       name
+      slug
       images {
         id
         file {
           url
-          fileName
-          contentType
         }
       }
       content {
-        id
         childMarkdownRemark {
-          id
           html
-          timeToRead
+        }
+      }
+      giftBoxItems {
+        id
+        title
+        description {
+          childMarkdownRemark {
+            html
+          }
         }
       }
     }

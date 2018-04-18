@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 
-import Carousel from "../components/Carousel";
+import Gallery from "../components/Gallery";
 import HeroBanner from "../components/HeroBanner";
 
 class IndexPage extends React.PureComponent {
@@ -67,8 +67,8 @@ class IndexPage extends React.PureComponent {
           </h1>
         </HeroBanner>
 
-        <Carousel title="Featured Items" items={featuredItems} />
-        <Carousel title="Gift Boxes" items={giftBoxes} />
+        <Gallery title="Featured Items" items={featuredItems} columns="4" />
+        <Gallery title="Gift Boxes" items={giftBoxes} columns="3" />
       </div>
     );
   }
