@@ -11,50 +11,21 @@ class IndexPage extends React.PureComponent {
   };
 
   render() {
-    const featuredItems = [
-      {
-        key: "test-1",
-        description: "test-1",
-        img: "https://via.placeholder.com/150x150"
-      },
-      {
-        key: "test-2",
-        description: "test-2",
-        img: "https://via.placeholder.com/150x150"
-      },
-      {
-        key: "test-3",
-        description: "test-3",
-        img: "https://via.placeholder.com/150x150"
-      },
-      {
-        key: "test-4",
-        description: "test-4",
-        img: "https://via.placeholder.com/150x150"
-      },
-      {
-        key: "test-5",
-        description: "test-5",
-        img: "https://via.placeholder.com/150x150"
-      }
-    ];
-    const giftBoxes = [
-      {
-        key: "test-1",
-        description: "test-1",
-        img: "http://via.placeholder.com/300x300"
-      },
-      {
-        key: "test-2",
-        description: "test-2",
-        img: "http://via.placeholder.com/300x300"
-      },
-      {
-        key: "test-3",
-        description: "test-3",
-        img: "http://via.placeholder.com/300x300"
-      }
-    ];
+    const giftBoxes = this.props.data.allContentfulGiftBox.edges.map(gb => ({
+      key: gb.node.id,
+      description: gb.node.name,
+      img:
+        gb.node.images && gb.node.images.length > 0
+          ? gb.node.images[0].file.url
+          : null
+    }));
+    const featuredItems = this.props.data.allContentfulGiftBoxItem.edges.map(
+      i => ({
+        key: i.node.id,
+        description: i.node.title,
+        img: i.node.image && i.node.image.file ? i.node.image.file.url : null
+      })
+    );
 
     return (
       <div>
@@ -67,8 +38,13 @@ class IndexPage extends React.PureComponent {
           </h1>
         </HeroBanner>
 
+        <Gallery
+          title="Gift Boxes"
+          items={giftBoxes}
+          columns="3"
+          itemHeight="400px"
+        />
         <Gallery title="Featured Items" items={featuredItems} columns="4" />
-        <Gallery title="Gift Boxes" items={giftBoxes} columns="3" />
       </div>
     );
   }
@@ -78,16 +54,28 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query homePageQuery {
-    allContentfulBlog {
+    allContentfulGiftBox {
       edges {
         node {
           id
+          name
           slug
+          images {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+    allContentfulGiftBoxItem {
+      edges {
+        node {
+          id
           title
-          createdAt
-          content {
-            childMarkdownRemark {
-              timeToRead
+          image {
+            file {
+              url
             }
           }
         }

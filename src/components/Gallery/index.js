@@ -10,7 +10,8 @@ class Gallery extends React.PureComponent {
   static propTypes = {
     title: PropTypes.string,
     items: PropTypes.array.isRequired,
-    columns: PropTypes.integer
+    columns: PropTypes.integer,
+    itemHeight: PropTypes.string
   };
 
   render() {
@@ -20,6 +21,7 @@ class Gallery extends React.PureComponent {
     }
 
     const columns = this.props.columns ? this.props.columns : 4;
+    const itemHeight = this.props.itemHeight ? this.props.itemHeight : "300px";
 
     return (
       <div className={style.gallery_wrapper}>
@@ -41,7 +43,15 @@ class Gallery extends React.PureComponent {
                 textAlign: "center"
               }}
             >
-              <img src={i.img} />
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  height: itemHeight
+                }}
+              >
+                <img style={{ objectFit: "contain" }} src={i.img} />
+              </div>
               <figcaption className={style.gallery__item_description}>
                 {i.description && i.description.childMarkdownRemark ? (
                   <Wysiwyg content={i.description} />

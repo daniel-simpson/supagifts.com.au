@@ -47,7 +47,15 @@ class BoxPageTemplate extends React.Component {
             </div>
           </div>
 
-          <Gallery title="Whats in the box?" columns="2" items={giftBoxItems} />
+          <Gallery
+            title="Whats in the box?"
+            columns="2"
+            items={giftBoxItems.map(i => ({
+              key: i.id,
+              description: i.description,
+              img: i.image && i.image.file ? i.image.file.url : null
+            }))}
+          />
 
           <CTA text="Buy now" url="/buy" />
         </div>
@@ -81,6 +89,11 @@ export const pageQuery = graphql`
         description {
           childMarkdownRemark {
             html
+          }
+        }
+        image {
+          file {
+            url
           }
         }
       }
