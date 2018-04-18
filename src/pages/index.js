@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 
+import Carousel from "../components/Carousel";
 import HeroBanner from "../components/HeroBanner";
-import BlockView from "../components/BlockView";
 
 class IndexPage extends React.PureComponent {
   static propTypes = {
@@ -11,18 +11,48 @@ class IndexPage extends React.PureComponent {
   };
 
   render() {
-    let blocks = [
+    const featuredItems = [
       {
-        id: "receive-start",
-        title: "I received a supa gift box and would like more information",
-        backgroundColour: "#709F86",
-        link: "/"
+        key: "test-1",
+        description: "test-1",
+        img: "http://via.placeholder.com/150x150"
       },
       {
-        id: "send-start",
-        title: "I would like to send a supa gift box",
-        backgroundColour: "#4F4084",
-        link: "/"
+        key: "test-2",
+        description: "test-2",
+        img: "http://via.placeholder.com/150x150"
+      },
+      {
+        key: "test-3",
+        description: "test-3",
+        img: "http://via.placeholder.com/150x150"
+      },
+      {
+        key: "test-4",
+        description: "test-4",
+        img: "http://via.placeholder.com/150x150"
+      },
+      {
+        key: "test-5",
+        description: "test-5",
+        img: "http://via.placeholder.com/150x150"
+      }
+    ];
+    const giftBoxes = [
+      {
+        key: "test-1",
+        description: "test-1",
+        img: "http://via.placeholder.com/300x300"
+      },
+      {
+        key: "test-2",
+        description: "test-2",
+        img: "http://via.placeholder.com/300x300"
+      },
+      {
+        key: "test-3",
+        description: "test-3",
+        img: "http://via.placeholder.com/300x300"
       }
     ];
 
@@ -36,7 +66,9 @@ class IndexPage extends React.PureComponent {
             </p>
           </h1>
         </HeroBanner>
-        <BlockView items={blocks} />
+
+        <Carousel title="Featured Items" items={featuredItems} />
+        <Carousel title="Gift Boxes" items={giftBoxes} />
       </div>
     );
   }

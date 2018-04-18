@@ -1,6 +1,9 @@
 @import "./_mixins";
 @import "./_palette";
 
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 * {
   color: $primary-dark;
 }
@@ -65,7 +68,8 @@ footer,
 main {
   background: url(/assets/images/SG_103-Pattern.png);
   background-repeat: repeat;
-  height: calc(100vh - 120px);
+  height: 100%;
+  min-height: calc(100vh - 120px);
 }
 
 .container,
