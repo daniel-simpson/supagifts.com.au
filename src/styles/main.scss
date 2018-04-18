@@ -153,3 +153,11 @@ footer {
     }
   }
 }
+
+.loader {
+  background: url("/assets/images/loader.gif") no-repeat center center;
+  content: "";
+  display: block;
+  min-height: 120px;
+  width: auto;
+}

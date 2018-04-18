@@ -8,10 +8,12 @@ class PaperformEmbed extends React.PureComponent {
   };
 
   componentDidMount() {
-    if (!document.querySelectorAll("script[src='https://paperform.co/__embed']").length) {
-
+    if (
+      !document.querySelectorAll("script[src='https://paperform.co/__embed']")
+        .length
+    ) {
       const paperformEmbed = document.createElement("script");
-      paperformEmbed.src = "https://paperform.co/__embed"
+      paperformEmbed.src = "https://paperform.co/__embed";
       paperformEmbed.async = true;
 
       document.body.appendChild(paperformEmbed);
@@ -22,7 +24,7 @@ class PaperformEmbed extends React.PureComponent {
     const id = this.props.id;
 
     return (
-      <div>
+      <div className="loader">
         <div data-paperform-id={id} />
       </div>
     );

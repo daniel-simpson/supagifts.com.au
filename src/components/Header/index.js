@@ -9,7 +9,7 @@ import style from "./header.module.scss";
 
 class Header extends React.PureComponent {
   static propTypes = {
-    menuItems: PropTypes.array.isRequired,
+    menuItems: PropTypes.array,
     footerItems: PropTypes.array
   };
 
@@ -28,6 +28,19 @@ class Header extends React.PureComponent {
 
   render() {
     const { menuItems, footerItems } = this.props;
+    const hasMenu = menuItems != null && menuItems.length > 0;
+
+    if (!hasMenu) {
+      return (
+        <header>
+          <Link to="/" className={style.home_link}>
+            <h2>
+              <img alt="Supagifts" src="/assets/images/logo_and_tagline.png" />
+            </h2>
+          </Link>
+        </header>
+      );
+    }
 
     return (
       <div>
@@ -55,7 +68,6 @@ class Header extends React.PureComponent {
                 ))}
               </ul>
             </nav>
-
             <div
               className={style.mobile_nav__trigger_open}
               onClick={this.showMobileNav.bind(this)}

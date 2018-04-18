@@ -25,22 +25,13 @@ class TemplateWrapper extends React.PureComponent {
         title: "About Us",
         slug: "/about-us"
       },
-      {
-        id: "boxes",
-        title: "Our Gift Boxes",
-        children: data.allContentfulGiftBox.edges.map(j => {
-          return {
-            id: j.node.id,
-            title: j.node.name,
-            slug: `/boxes/${j.node.slug}`
-          };
-        })
-      },
-      {
-        id: "blog",
-        title: "Blog",
-        slug: "/blog"
-      },
+      ...data.allContentfulGiftBox.edges.map(j => {
+        return {
+          id: j.node.id,
+          title: j.node.name,
+          slug: `/boxes/${j.node.slug}`
+        };
+      }),
       {
         id: "buy",
         title: "Buy now",
