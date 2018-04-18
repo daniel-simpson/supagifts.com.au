@@ -15,10 +15,6 @@ class BoxPageTemplate extends React.Component {
   render() {
     const { id, name, images, content } = this.props.data.contentfulGiftBox;
 
-    const price = this.props.data.contentfulGiftBox.price
-      ? `$${this.props.data.contentfulGiftBox.price}`
-      : "";
-
     const heroImage =
       images && images.length
         ? `${images[0].file.url}?w=800&fm=jpg&fl=progressive`
@@ -28,9 +24,7 @@ class BoxPageTemplate extends React.Component {
       <div className={style.boxpage_wrapper}>
         <img className={style.box_image} src={heroImage} />
         <div className={`${style.content} content-container`}>
-          <h1>
-            {name} {price}
-          </h1>
+          <h1>{name}</h1>
           <Wysiwyg content={content} />
         </div>
       </div>
@@ -53,7 +47,6 @@ export const pageQuery = graphql`
           contentType
         }
       }
-      price
       content {
         id
         childMarkdownRemark {
