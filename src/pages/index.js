@@ -28,6 +28,14 @@ class IndexPage extends React.PureComponent {
 
     return (
       <div>
+        <HeroBanner imageUrl="/assets/img/SG_103-Pattern.png">
+          <h1>
+            Welcome to supa gifts!
+            <p>
+              Quality gift boxes that help promote great environmental habits
+            </p>
+          </h1>
+        </HeroBanner>
         <BlockView items={blocks} />
       </div>
     );

@@ -10,7 +10,7 @@ const theme: OptionsType = {
   googleFonts: [
     {
       name: "Slabo 27px",
-      styles: ["400"]
+      styles: ["300", "800"]
     },
     {
       name: "Oxygen",
@@ -20,7 +20,7 @@ const theme: OptionsType = {
   headerFontFamily: ["Slabo 27px", "sans-serif"],
   bodyFontFamily: ["Oxygen", "georgia", "sans-serif"],
   bodyColor: "hsla(0,0%,0%,0.87)",
-  headerWeight: 400,
+  headerWeight: 800,
   bodyWeight: 300,
   boldWeight: 700,
   overrideStyles: ({ scale, rhythm }) => ({

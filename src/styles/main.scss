@@ -161,3 +161,25 @@ footer {
   min-height: 120px;
   width: auto;
 }
+
+h1 {
+  color: white;
+  font-size: 4em;
+  padding: 0.5em;
+  text-align: center;
+  z-index: 2;
+
+  > p {
+    font-size: 2rem;
+    margin-top: 1em;
+  }
+
+  &.hero-heading {
+    border: 3px solid white;
+  }
+
+  .title-light {
+    font-weight: 300;
+    color: inherit;
+  }
+}

@@ -24,11 +24,20 @@ class ContentPageTemplate extends React.Component {
         ? heroImage.file.url
         : "";
 
+    const titleWords = title.split(" ");
+    const titleElement =
+      titleWords.length == 2 ? (
+        <h1 className="hero-heading">
+          {titleWords[0]}&nbsp;
+          <span className="title-light">{titleWords[1]}</span>
+        </h1>
+      ) : (
+        <h1 className="hero-heading">{title}</h1>
+      );
+
     return (
       <div>
-        <HeroBanner imageUrl={imageSrc}>
-          <h1>{title}</h1>
-        </HeroBanner>
+        <HeroBanner imageUrl={imageSrc}>{titleElement}</HeroBanner>
         <div className="container">
           <Wysiwyg content={content} />
           {paperformEmbedId ? <PaperformEmbed id={paperformEmbedId} /> : null}

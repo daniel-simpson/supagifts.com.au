@@ -1,7 +1,7 @@
 .hero {
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 
   width: 100%;
 
@@ -12,11 +12,15 @@
 
   margin-bottom: 1rem;
 
-  > div {
-    margin: 1rem;
-
-    @media (min-width: 960px) {
-      margin: 2rem;
-    }
+  position: relative;
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
   }
 }
