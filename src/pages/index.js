@@ -15,27 +15,27 @@ class IndexPage extends React.PureComponent {
       {
         key: "test-1",
         description: "test-1",
-        img: "http://via.placeholder.com/150x150"
+        img: "https://via.placeholder.com/150x150"
       },
       {
         key: "test-2",
         description: "test-2",
-        img: "http://via.placeholder.com/150x150"
+        img: "https://via.placeholder.com/150x150"
       },
       {
         key: "test-3",
         description: "test-3",
-        img: "http://via.placeholder.com/150x150"
+        img: "https://via.placeholder.com/150x150"
       },
       {
         key: "test-4",
         description: "test-4",
-        img: "http://via.placeholder.com/150x150"
+        img: "https://via.placeholder.com/150x150"
       },
       {
         key: "test-5",
         description: "test-5",
-        img: "http://via.placeholder.com/150x150"
+        img: "https://via.placeholder.com/150x150"
       }
     ];
     const giftBoxes = [
