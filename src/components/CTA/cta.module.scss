@@ -1,0 +1,18 @@
+@import "../../styles/_palette";
+
+.cta_wrapper {
+  a {
+    text-decoration: none;
+  }
+}
+
+.cta_button {
+  background: $primary-light;
+  border: 3px solid $primary-dark;
+  color: $primary-dark;
+  font-size: 2em;
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+  text-transform: uppercase;
+}

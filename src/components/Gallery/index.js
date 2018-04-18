@@ -37,8 +37,7 @@ class Gallery extends React.PureComponent {
               key={i.key}
               style={{
                 display: "inline-block",
-                minWidth: `calc(99% / ${columns})`,
-                maxWidth: "150px",
+                maxWidth: `calc(99% / ${columns})`,
                 textAlign: "center"
               }}
             >

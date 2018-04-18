@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
+import Helmet from "react-helmet";
 
-import Carousel from "../../components/Carousel";
+import CTA from "../../components/CTA";
 import Gallery from "../../components/Gallery";
 import HeroBanner from "../../components/HeroBanner";
 import Wysiwyg from "../../components/Wysiwyg";
@@ -30,17 +31,25 @@ class BoxPageTemplate extends React.Component {
 
     return (
       <div>
+        <Helmet title={`${name} Gift Box | supa gifts australia`} />
         <div className="container">
           <div className={style.boxpage_wrapper}>
-            <Carousel items={[{ key: 1, img: heroImage }]} />
+            <Gallery columns="1" items={[{ key: 1, img: heroImage }]} />
             <div className={`${style.content} content-container`}>
-              <h1 className={style.box_name}>{name}</h1>
+              <h1
+                className={`${style.box_name} hero-heading hero-heading-dark`}
+              >
+                {`${name} `}
+                <span className="title-light">Gift Box</span>
+              </h1>
 
               <Wysiwyg content={content} />
             </div>
           </div>
 
           <Gallery title="Whats in the box?" columns="2" items={giftBoxItems} />
+
+          <CTA text="Buy now" url="/buy" />
         </div>
       </div>
     );

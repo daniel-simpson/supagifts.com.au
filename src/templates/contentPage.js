@@ -28,7 +28,7 @@ class ContentPageTemplate extends React.Component {
     const titleElement =
       titleWords.length == 2 ? (
         <h1 className="hero-heading">
-          {titleWords[0]}&nbsp;
+          {`${titleWords[0]} `}
           <span className="title-light">{titleWords[1]}</span>
         </h1>
       ) : (

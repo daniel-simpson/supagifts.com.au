@@ -1,22 +1,23 @@
+@import "../../styles/_palette";
+
 .boxpage_wrapper {
-  @media (min-width: 960px) {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
   }
 }
 
 .box_image {
   height: auto;
-  @media (min-width: 960px) {
-    display: inline-block;
+
+  @media (min-width: 1200px) {
     max-width: 50vw;
-    order: 2;
   }
 }
 
 .box_name {
   color: $primary-dark;
+  padding: 0.5em 0;
 }
 
 .content {
@@ -29,20 +30,4 @@
   max-height: 0;
   transition: max-height 0.15s ease-out;
   overflow: hidden;
-}
-
-.giftBoxItems {
-  padding-bottom: 1em;
-
-  label {
-    cursor: pointer;
-  }
-
-  input[type="checkbox"] {
-    display: none;
-  }
-
-  input[type="checkbox"]:checked + .description {
-    max-height: 100px;
-  }
 }
