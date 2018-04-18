@@ -26,31 +26,22 @@ class Gallery extends React.PureComponent {
     return (
       <div className={style.gallery_wrapper}>
         {title ? <h3 className={style.gallery_title}>{title}</h3> : null}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            maxWidth: "100%",
-            flexWrap: "wrap"
-          }}
-        >
+        <div className={style.gallery_items}>
           {items.map(i => (
             <figure
               key={i.key}
+              className={style.gallery_item}
               style={{
-                display: "inline-block",
-                maxWidth: `calc(99% / ${columns})`,
-                textAlign: "center"
+                maxWidth: `calc(99% / ${columns})`
               }}
             >
               <div
+                className={style.image_container}
                 style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  height: itemHeight
+                  maxHeight: itemHeight
                 }}
               >
-                <img style={{ objectFit: "contain" }} src={i.img} />
+                <img src={i.img} />
               </div>
               <figcaption className={style.gallery__item_description}>
                 {i.description && i.description.childMarkdownRemark ? (
