@@ -13,7 +13,8 @@ ol {
 }
 
 body {
-  height: 100%;
+  position: relative;
+  min-height: 100vh;
   width: 100%;
   color: $primary-dark;
 }
@@ -65,7 +66,6 @@ footer,
 main {
   background: url(/assets/images/SG_103-Pattern.png);
   background-repeat: repeat;
-  height: 100%;
   min-height: calc(100vh - 120px);
 }
 
@@ -75,20 +75,11 @@ main {
 
   margin: 0 auto;
   max-width: 1200px;
-  padding: 1rem 1.0875rem 5rem;
+  padding: 1rem 1.0875rem;
 }
 
 .content-container {
   padding-top: 0;
-  padding-bottom: 1em;
-}
-
-.splashpage {
-  display: grid;
-  height: 85vh;
-  padding-top: $gutter;
-  padding-bottom: 3 * $gutter;
-  grid-template-rows: 4fr 1fr;
 }
 
 .hero {
@@ -100,26 +91,6 @@ main {
   p {
     text-align: center;
   }
-}
-
-.cta {
-  padding: $gutter;
-  background-color: white;
-  text-align: center;
-
-  > div {
-    border-radius: 5px;
-    background-color: $primary-light;
-    padding: $gutter;
-    margin: auto;
-  }
-}
-
-.splashpage .cta {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 5vh;
 }
 
 button {

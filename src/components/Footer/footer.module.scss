@@ -1,6 +1,6 @@
-body {
-  position: relative;
-  min-height: calc(100vh - 1px);
+.footer_wrapper {
+  //ensures nothing is behind the absolute footer below
+  height: 3em;
 }
 
 .footer {
