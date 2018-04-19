@@ -3,6 +3,7 @@ import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 import Helmet from "react-helmet";
 
+import ContentBlocks from "../../components/ContentBlocks";
 import CTA from "../../components/CTA";
 import Gallery from "../../components/Gallery";
 import HeroBanner from "../../components/HeroBanner";
@@ -49,11 +50,12 @@ class BoxPageTemplate extends React.Component {
             </div>
           </div>
         </div>
-        <Gallery
-          title="Whats in the box?"
+        <ContentBlocks
+          title="Included in this box:"
           columns="2"
           items={giftBoxItems.map(i => ({
             key: i.id,
+            title: i.title,
             description: i.description,
             img: i.image && i.image.file ? i.image.file.url : null
           }))}

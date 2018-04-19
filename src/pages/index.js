@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 
+import ContentBlocks from "../components/ContentBlocks";
 import Gallery from "../components/Gallery";
 import HeroBanner from "../components/HeroBanner";
 
@@ -23,7 +24,8 @@ class IndexPage extends React.PureComponent {
     const featuredItems = this.props.data.allContentfulGiftBoxItem.edges.map(
       i => ({
         key: i.node.id,
-        description: i.node.title,
+        title: i.node.title,
+        description: i.node.description,
         img: i.node.image && i.node.image.file ? i.node.image.file.url : null
       })
     );
@@ -43,7 +45,11 @@ class IndexPage extends React.PureComponent {
           columns="3"
           itemHeight="400px"
         />
-        <Gallery title="Featured Items" items={featuredItems} columns="4" />
+        <ContentBlocks
+          title="Featured Items"
+          items={featuredItems}
+          columns="4"
+        />
       </div>
     );
   }
@@ -72,6 +78,11 @@ export const pageQuery = graphql`
         node {
           id
           title
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
           image {
             file {
               url
