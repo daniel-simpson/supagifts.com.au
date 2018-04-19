@@ -32,17 +32,16 @@ class Gallery extends React.PureComponent {
               key={i.key}
               className={style.gallery_item}
               style={{
-                maxWidth: `calc(99% / ${columns})`
+                flexBasis: `calc(90% / ${columns})`
               }}
             >
-              <div
-                className={style.image_container}
+              <img
+                className={style.gallery_image}
                 style={{
-                  maxHeight: itemHeight
+                  height: itemHeight
                 }}
-              >
-                <img src={i.img} />
-              </div>
+                src={i.img}
+              />
               <figcaption className={style.gallery__item_description}>
                 {i.description && i.description.childMarkdownRemark ? (
                   <Wysiwyg content={i.description} />

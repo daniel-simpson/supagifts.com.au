@@ -1,3 +1,5 @@
+@import "../../styles/_palette";
+
 .gallery_wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -7,7 +9,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: flex-start;
   max-width: 100%;
 
   @media (min-width: 960px) {
@@ -17,14 +20,33 @@
 }
 
 .gallery_item {
-  display: inline-block;
-}
-
-.image_container {
   display: flex;
+  flex-direction: column;
+  //  justify-content: space-between;
+  overflow-y: hidden;
+
+  background: white;
+  border: 2px solid $secondary-dark;
+  padding: 1em;
 
   > img {
     object-fit: contain;
+  }
+
+  > figcaption {
+    color: $secondary-dark;
+  }
+
+  &:nth-child(2n) {
+    border: 2px solid $secondary-accent;
+
+    figcaption {
+      color: $secondary-accent;
+    }
+  }
+
+  @media (max-width: 960px) {
+    max-width: 80% !important;
   }
 }
 
