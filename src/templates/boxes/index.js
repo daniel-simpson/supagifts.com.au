@@ -34,10 +34,7 @@ class BoxPageTemplate extends React.Component {
         <Helmet title={`${name} Gift Box | supa gifts australia`} />
         <div className="container">
           <div className={style.boxpage_wrapper}>
-            <img
-              src={heroImage}
-              style={{ maxHeight: "50vh", width: "100%", objectFit: "contain" }}
-            />
+            <img src={heroImage} className={style.box_image} />
             <div className={`${style.content} content-container`}>
               <h1
                 className={`${style.box_name} hero-heading hero-heading-dark`}
@@ -62,7 +59,9 @@ class BoxPageTemplate extends React.Component {
           }))}
         />
 
-        <CTA text="Buy now" url="/buy" />
+        <div className="container">
+          <CTA text="Buy now" url="/buy" />
+        </div>
       </div>
     );
   }
