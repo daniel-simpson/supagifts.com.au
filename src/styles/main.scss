@@ -1,5 +1,6 @@
 @import "./_mixins";
 @import "./_palette";
+@import "./_sizing";
 
 * {
   color: $primary-dark;
@@ -113,7 +114,7 @@ footer {
   }
 
   display: none;
-  @media (min-width: 960px) {
+  @media (min-width: $breakpoint-large) {
     display: initial;
   }
 }

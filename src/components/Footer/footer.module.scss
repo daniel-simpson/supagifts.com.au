@@ -1,3 +1,5 @@
+@import "../../styles/_sizing";
+
 .footer_wrapper {
   //ensures nothing is behind the absolute footer below
   height: 3em;
@@ -11,7 +13,7 @@
   padding: 1rem;
 
   ul {
-    max-width: 960px;
+    max-width: $breakpoint-large;
     margin: 0 auto;
   }
 
@@ -24,7 +26,7 @@
     }
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: $breakpoint-large) {
     ul {
       display: flex;
       align-items: center;

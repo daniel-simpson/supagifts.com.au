@@ -1,4 +1,5 @@
 @import "../../styles/_palette";
+@import "../../styles/_sizing";
 
 .header {
   > div {
@@ -55,7 +56,7 @@
   cursor: pointer;
 
   //Desktop only
-  @media (min-width: 960px) {
+  @media (min-width: $breakpoint-large) {
     display: none;
   }
 }

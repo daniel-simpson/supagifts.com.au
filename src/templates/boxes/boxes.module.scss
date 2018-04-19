@@ -1,7 +1,8 @@
 @import "../../styles/_palette";
+@import "../../styles/_sizing";
 
 .boxpage_wrapper {
-  @media (min-width: 800px) {
+  @media (min-width: $breakpoint-medium) {
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
@@ -10,7 +11,7 @@
 .box_image {
   height: auto;
 
-  @media (min-width: 800px) {
+  @media (min-width: $breakpoint-medium) {
     max-width: 50vw;
   }
 }

@@ -1,5 +1,7 @@
+@import "../../styles/_sizing";
+
 .blockview_wrapper {
-  @media (min-width: 960px) {
+  @media (min-width: $breakpoint-large) {
     display: flex;
   }
 }
@@ -19,7 +21,7 @@
     max-width: 80%;
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: $breakpoint-large) {
     height: 50vh;
     width: 50vw;
     max-width: 50%;

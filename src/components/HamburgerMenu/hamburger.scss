@@ -1,3 +1,5 @@
+@import "../../styles/_sizing";
+
 .bm-burger-button {
   position: fixed;
   width: 36px;
@@ -5,7 +7,7 @@
   right: 24px;
   top: 24px;
 
-  @media (min-width: 960px) {
+  @media (min-width: $breakpoint-large) {
     display: none;
   }
 }
