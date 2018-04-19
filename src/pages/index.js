@@ -14,6 +14,7 @@ class IndexPage extends React.PureComponent {
     const giftBoxes = this.props.data.allContentfulGiftBox.edges.map(gb => ({
       key: gb.node.id,
       description: gb.node.name,
+      slug: `/boxes/${gb.node.slug}`,
       img:
         gb.node.images && gb.node.images.length > 0
           ? gb.node.images[0].file.url
@@ -29,13 +30,11 @@ class IndexPage extends React.PureComponent {
 
     return (
       <div>
-        <HeroBanner imageUrl="/assets/img/SG_103-Pattern.png">
-          <h1>
-            Welcome to supa gifts!
-            <p>
-              Quality gift boxes that help promote great environmental habits
-            </p>
+        <HeroBanner imageUrl="https://images.unsplash.com/photo-1482173074468-5b323335debe">
+          <h1 className="hero-heading">
+            Welcome to supa&nbsp;<span className="title-light">gifts</span>!
           </h1>
+          <h3>Quality gift boxes that promote great environmental habits</h3>
         </HeroBanner>
 
         <Gallery

@@ -1,5 +1,6 @@
 .hero {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -22,5 +23,20 @@
     content: "";
     background-color: rgba(0, 0, 0, 0.4);
     pointer-events: none;
+  }
+
+  > * {
+    max-width: 95%;
+    z-index: 2;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: white;
   }
 }

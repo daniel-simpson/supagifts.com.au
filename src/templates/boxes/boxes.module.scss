@@ -1,7 +1,7 @@
 @import "../../styles/_palette";
 
 .boxpage_wrapper {
-  @media (min-width: 1200px) {
+  @media (min-width: 800px) {
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
@@ -10,7 +10,7 @@
 .box_image {
   height: auto;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 800px) {
     max-width: 50vw;
   }
 }

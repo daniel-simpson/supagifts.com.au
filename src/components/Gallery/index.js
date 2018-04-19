@@ -27,30 +27,38 @@ class Gallery extends React.PureComponent {
       <div className={style.gallery_wrapper}>
         {title ? <h3 className={style.gallery_title}>{title}</h3> : null}
         <div className={style.gallery_items}>
-          {items.map(i => (
-            <figure
-              key={i.key}
-              className={style.gallery_item}
-              style={{
-                flexBasis: `calc(90% / ${columns})`
-              }}
-            >
-              <img
-                className={style.gallery_image}
+          {items.map(i => {
+            const figure = (
+              <figure
+                key={i.key}
+                className={style.gallery_item}
                 style={{
-                  height: itemHeight
+                  flexBasis: `calc(90% / ${columns})`
                 }}
-                src={i.img}
-              />
-              <figcaption className={style.gallery__item_description}>
-                {i.description && i.description.childMarkdownRemark ? (
-                  <Wysiwyg content={i.description} />
-                ) : (
-                  i.description
-                )}
-              </figcaption>
-            </figure>
-          ))}
+              >
+                <img
+                  className={style.gallery_image}
+                  style={{
+                    height: itemHeight
+                  }}
+                  src={i.img}
+                />
+                <figcaption className={style.gallery__item_description}>
+                  {i.description && i.description.childMarkdownRemark ? (
+                    <Wysiwyg content={i.description} />
+                  ) : (
+                    i.description
+                  )}
+                </figcaption>
+              </figure>
+            );
+
+            if (i.slug) {
+              return <Link to={i.slug}>{figure}</Link>;
+            }
+
+            return figure;
+          })}
         </div>
       </div>
     );

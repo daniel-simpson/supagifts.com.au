@@ -10,10 +10,10 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;
   max-width: 100%;
 
   @media (min-width: 960px) {
+    align-items: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
   }
