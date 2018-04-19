@@ -25,7 +25,7 @@ class Gallery extends React.PureComponent {
 
     return (
       <div className={style.gallery_wrapper}>
-        {title ? <h3 className={style.gallery_title}>{title}</h3> : null}
+        {title ? <h2 className={style.gallery_title}>{title}</h2> : null}
         <div className={style.gallery_items}>
           {items.map(i => {
             const figure = (

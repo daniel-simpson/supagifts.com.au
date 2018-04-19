@@ -24,7 +24,7 @@ class ContentBlock extends React.PureComponent {
 
     return (
       <div className={style.contentblocks_wrapper}>
-        {title ? <h3 className={style.contentblocks_title}>{title}</h3> : null}
+        {title ? <h2 className={style.contentblocks_title}>{title}</h2> : null}
         <div className={style.contentblocks_items}>
           {items.map(i => {
             const figure = (
