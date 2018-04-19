@@ -1,18 +1,24 @@
 @import "../../styles/_palette";
 
 .cta_wrapper {
+  margin: 1em;
   a {
     text-decoration: none;
   }
 }
 
 .cta_button {
-  background: $primary-light;
-  border: 3px solid $primary-dark;
+  background: $primary-accent;
+  //border: 3px solid $primary-dark;
   color: $primary-dark;
   font-size: 2em;
   margin: 0 auto;
   padding: 1em;
   text-align: center;
   text-transform: uppercase;
+
+  &:hover {
+    background: darken($primary-light, 40%);
+    box-shadow: 1px;
+  }
 }

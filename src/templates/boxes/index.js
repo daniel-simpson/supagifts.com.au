@@ -34,7 +34,10 @@ class BoxPageTemplate extends React.Component {
         <Helmet title={`${name} Gift Box | supa gifts australia`} />
         <div className="container">
           <div className={style.boxpage_wrapper}>
-            <Gallery columns="1" items={[{ key: 1, img: heroImage }]} />
+            <img
+              src={heroImage}
+              style={{ maxHeight: "50vh", width: "100%", objectFit: "contain" }}
+            />
             <div className={`${style.content} content-container`}>
               <h1
                 className={`${style.box_name} hero-heading hero-heading-dark`}
@@ -44,21 +47,22 @@ class BoxPageTemplate extends React.Component {
               </h1>
 
               <Wysiwyg content={content} />
+
+              <CTA text="Buy now" url="/buy" />
             </div>
           </div>
-
-          <Gallery
-            title="Whats in the box?"
-            columns="2"
-            items={giftBoxItems.map(i => ({
-              key: i.id,
-              description: i.description,
-              img: i.image && i.image.file ? i.image.file.url : null
-            }))}
-          />
-
-          <CTA text="Buy now" url="/buy" />
         </div>
+        <Gallery
+          title="Whats in the box?"
+          columns="2"
+          items={giftBoxItems.map(i => ({
+            key: i.id,
+            description: i.description,
+            img: i.image && i.image.file ? i.image.file.url : null
+          }))}
+        />
+
+        <CTA text="Buy now" url="/buy" />
       </div>
     );
   }
