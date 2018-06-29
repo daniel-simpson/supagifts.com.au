@@ -41,6 +41,7 @@
     "lunr": "^2.1.2",
     "node-sass": "^4.5.3",
     "react-headroom": "^2.2.2",
+    "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
     "typography": "^0.16.6",
     "typography-breakpoint-constants": "^0.15.10"
