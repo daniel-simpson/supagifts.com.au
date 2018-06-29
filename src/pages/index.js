@@ -32,7 +32,7 @@ class IndexPage extends React.PureComponent {
 
     return (
       <div>
-        <HeroBanner imageUrl="https://images.unsplash.com/photo-1482173074468-5b323335debe">
+        <HeroBanner imageUrl="https://images.pexels.com/photos/479453/pexels-photo-479453.jpeg">
           <h1 className="hero-heading">
             Welcome to supa&nbsp;<span className="title-light">gifts</span>!
           </h1>
