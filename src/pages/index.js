@@ -18,7 +18,8 @@ class IndexPage extends React.PureComponent {
       key: i.id,
       title: i.title,
       description: i.description,
-      img: i.image && i.image.file ? i.image.file.url : null
+      img: i.image && i.image.file ? i.image.file.url : null,
+      slug: i.moreInfo
     }));
 
     const giftBoxes = this.props.data.allContentfulGiftBox.edges.map(gb => ({
@@ -79,6 +80,7 @@ export const pageQuery = graphql`
                 html
               }
             }
+            moreInfo
             image {
               file {
                 url

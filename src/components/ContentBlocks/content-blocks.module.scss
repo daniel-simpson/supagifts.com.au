@@ -13,6 +13,10 @@
   justify-content: space-around;
   max-width: 100%;
   padding: 1em;
+  
+  a {
+    text-decoration: none;
+  }
 
   @media (min-width: $breakpoint-large) {
     align-items: flex-start;
