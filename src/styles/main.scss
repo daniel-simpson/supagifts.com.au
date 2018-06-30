@@ -159,6 +159,10 @@ h1 {
   &.hero-heading-dark {
     border: 3px solid $primary-dark;
   }
+
+  @media (max-width: $breakpoint-small) {
+    font-size: 2em;
+  }
 }
 
 .title-light {
