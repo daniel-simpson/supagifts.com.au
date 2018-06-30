@@ -9,15 +9,15 @@ const theme: OptionsType = {
   baseLineHeight: 1.5,
   googleFonts: [
     {
-      name: "Slabo 27px",
-      styles: ["300", "800"]
+      name: "Arapey",
+      styles: ["400", "800"]
     },
     {
       name: "Oxygen",
       styles: ["300", "700"]
     }
   ],
-  headerFontFamily: ["Slabo 27px", "sans-serif"],
+  headerFontFamily: ["Arapey", "sans-serif"],
   bodyFontFamily: ["Oxygen", "georgia", "sans-serif"],
   bodyColor: "hsla(0,0%,0%,0.87)",
   headerWeight: 800,
