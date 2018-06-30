@@ -27,40 +27,55 @@ class ContentBlock extends React.PureComponent {
         {title ? <h2 className={style.contentblocks_title}>{title}</h2> : null}
         <div className={style.contentblocks_items}>
           {items.map(i => {
-            const figure = (
-              <div
-                className={style.contentblocks_item}
+            const image = (
+              <img
+                className={style.contentblocks_image}
                 style={{
-                  flexBasis: `calc(90% / ${columns})`
+                  height: itemHeight
                 }}
-              >
-                <img
-                  className={style.contentblocks_image}
-                  style={{
-                    height: itemHeight
-                  }}
-                  src={i.img}
-                />
-                <div className={style.contentblocks__item_description}>
-                  <h3>{i.title}</h3>
-                  {i.description && i.description.childMarkdownRemark ? (
-                    <Wysiwyg content={i.description} />
-                  ) : (
-                    i.description
-                  )}
-                </div>
+                src={i.img}
+              />
+            );
+
+            const description = (
+              <div className={style.contentblocks__item_description}>
+                <h3>{i.title}</h3>
+                {i.description && i.description.childMarkdownRemark ? (
+                  <Wysiwyg content={i.description} />
+                ) : (
+                  i.description
+                )}
               </div>
             );
 
             if (i.slug) {
               return (
-                <Link key={i.key} to={i.slug}>
-                  {figure}
+                <Link
+                  className={style.contentblocks_item}
+                  style={{
+                    flexBasis: `calc(90% / ${columns})`
+                  }}
+                  key={i.key}
+                  to={i.slug}
+                >
+                  {image}
+                  {description}
                 </Link>
               );
             }
 
-            return <div key={i.key}>{figure}</div>;
+            return (
+              <div
+                className={style.contentblocks_item}
+                style={{
+                  flexBasis: `calc(90% / ${columns})`
+                }}
+                key={i.key}
+              >
+                {image}
+                {description}
+              </div>
+            );
           })}
         </div>
       </div>
