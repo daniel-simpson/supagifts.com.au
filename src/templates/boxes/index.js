@@ -57,7 +57,8 @@ class BoxPageTemplate extends React.Component {
             key: i.id,
             title: i.title,
             description: i.description,
-            img: i.image && i.image.file ? i.image.file.url : null
+            img: i.image && i.image.file ? i.image.file.url : null,
+            slug: i.moreInfo
           }))}
         />
 
@@ -96,6 +97,7 @@ export const pageQuery = graphql`
             html
           }
         }
+        moreInfo
         image {
           file {
             url
