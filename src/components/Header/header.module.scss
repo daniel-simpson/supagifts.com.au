@@ -2,6 +2,9 @@
 @import "../../styles/_sizing";
 
 .header {
+  font-family: Arapey;
+  font-size: 20px;
+
   > div {
     display: flex;
     align-items: center;
@@ -83,6 +86,9 @@
   z-index: 5; //Above Headroom overlay & background grey
   min-width: 300px;
   max-width: 90vw;
+
+  font-family: Arapey;
+  font-size: 20px;
 
   background-color: rgba(0.1, 0.1, 0.1, 0.8);
   color: $primary-light;
