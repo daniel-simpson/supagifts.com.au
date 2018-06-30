@@ -4,7 +4,6 @@ import Link from "gatsby-link";
 import Helmet from "react-helmet";
 
 import Header from "../components/Header";
-import HamburgerMenu from "../components/HamburgerMenu";
 import Footer from "../components/Footer";
 
 import "../styles/main.scss";

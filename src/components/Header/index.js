@@ -104,17 +104,10 @@ class Header extends React.PureComponent {
               </li>
               {menuItems.concat(footerItems).map(m => (
                 <li key={m.id}>
-                  {m.children && m.children.length > 0 ? (
-                    <div>
-                      <span>{m.title}</span>
-                      <ul className={style.mobile_submenu}>
-                        {m.children.map(n => (
-                          <li key={n.id}>
-                            <Link to={n.slug}>{n.title}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  {m.url && !m.slug ? (
+                    <a href={m.url} target="_blank">
+                      {m.title}
+                    </a>
                   ) : (
                     <Link to={m.slug}>{m.title}</Link>
                   )}
