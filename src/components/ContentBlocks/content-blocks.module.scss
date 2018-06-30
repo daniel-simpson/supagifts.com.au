@@ -70,10 +70,6 @@
     flex-direction: row;
     align-items: center;
   }
-
-  @media (max-width: $breakpoint-small) {
-    max-width: 80% !important;
-  }
 }
 
 .contentblocks_title {

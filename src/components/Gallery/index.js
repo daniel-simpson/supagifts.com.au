@@ -28,12 +28,7 @@ class Gallery extends React.PureComponent {
         <div className={style.gallery_items}>
           {items.map(i => {
             const figure = (
-              <figure
-                className={style.gallery_item}
-                style={{
-                  flexBasis: `calc(90% / ${columns})`
-                }}
-              >
+              <figure>
                 <img
                   className={style.gallery_image}
                   style={{
@@ -53,13 +48,30 @@ class Gallery extends React.PureComponent {
 
             if (i.slug) {
               return (
-                <Link key={i.key} to={i.slug}>
+                <Link
+                  key={i.key}
+                  to={i.slug}
+                  className={style.gallery_item}
+                  style={{
+                    flexBasis: `calc(90% / ${columns})`
+                  }}
+                >
                   {figure}
                 </Link>
               );
             }
 
-            return <div key={i.key}>{figure}</div>;
+            return (
+              <div
+                key={i.key}
+                className={style.gallery_item}
+                style={{
+                  flexBasis: `calc(90% / ${columns})`
+                }}
+              >
+                {figure}
+              </div>
+            );
           })}
         </div>
       </div>

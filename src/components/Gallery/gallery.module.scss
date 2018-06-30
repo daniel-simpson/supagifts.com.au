@@ -37,16 +37,12 @@
 .gallery_item {
   display: flex;
   flex-direction: column;
-  //  justify-content: space-between;
   overflow-y: hidden;
 
   background: white;
   border: 2px solid $secondary-dark;
   padding: 1em;
-
-  > img {
-    object-fit: contain;
-  }
+  margin-bottom: 1em;
 
   > figcaption {
     color: $secondary-dark;
@@ -65,4 +61,8 @@
 .gallery__item_description {
   text-align: center;
   width: 100%;
+}
+
+.gallery_image {
+  object-fit: contain;
 }
