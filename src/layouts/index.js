@@ -31,6 +31,16 @@ class TemplateWrapper extends React.PureComponent {
         slug: `/boxes/${j.node.slug}`
       })),
       {
+        id: "faq",
+        title: "FAQ",
+        slug: "/faq"
+      },
+      {
+        id: "plastic-oceans",
+        title: "Plastic Oceans Australiasia",
+        slug: "/plastic-oceans-australasia"
+      },
+      {
         id: "buy",
         title: "Buy now",
         slug: "/buy"
