@@ -5,6 +5,7 @@ import Link from "gatsby-link";
 import ContentBlocks from "../components/ContentBlocks";
 import Gallery from "../components/Gallery";
 import HeroBanner from "../components/HeroBanner";
+import Wysiwyg from "../components/Wysiwyg";
 
 class IndexPage extends React.PureComponent {
   static propTypes = {
@@ -12,6 +13,14 @@ class IndexPage extends React.PureComponent {
   };
 
   render() {
+    const homepageData = this.props.data.allContentfulHomePage.edges[0].node;
+    const featuredItems = homepageData.items.map(i => ({
+      key: i.id,
+      title: i.title,
+      description: i.description,
+      img: i.image && i.image.file ? i.image.file.url : null
+    }));
+
     const giftBoxes = this.props.data.allContentfulGiftBox.edges.map(gb => ({
       key: gb.node.id,
       description: gb.node.name,
@@ -21,18 +30,12 @@ class IndexPage extends React.PureComponent {
           ? gb.node.images[0].file.url
           : null
     }));
-    const featuredItems = this.props.data.allContentfulGiftBoxItem.edges.map(
-      i => ({
-        key: i.node.id,
-        title: i.node.title,
-        description: i.node.description,
-        img: i.node.image && i.node.image.file ? i.node.image.file.url : null
-      })
-    );
+
+    const heroImage = homepageData.heroImage.file.url;
 
     return (
       <div>
-        <HeroBanner imageUrl="https://images.pexels.com/photos/479453/pexels-photo-479453.jpeg">
+        <HeroBanner imageUrl={heroImage}>
           <h1 className="hero-heading">
             Welcome to supa&nbsp;<span className="title-light">gifts</span>!
           </h1>
@@ -59,6 +62,32 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query homePageQuery {
+    allContentfulHomePage {
+      edges {
+        node {
+          title
+          heroImage {
+            file {
+              url
+            }
+          }
+          items {
+            id
+            title
+            description {
+              childMarkdownRemark {
+                html
+              }
+            }
+            image {
+              file {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
     allContentfulGiftBox {
       edges {
         node {
