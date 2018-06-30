@@ -17,6 +17,16 @@
     text-decoration: none;
   }
 
+  *:nth-child(2n) {
+    .gallery_item {
+      border: 2px solid $secondary-accent;
+
+      figcaption {
+        color: $secondary-accent;
+      }
+    }
+  }
+
   @media (min-width: $breakpoint-large) {
     align-items: flex-start;
     flex-direction: row;
@@ -40,14 +50,6 @@
 
   > figcaption {
     color: $secondary-dark;
-  }
-
-  &:nth-child(2n) {
-    border: 2px solid $secondary-accent;
-
-    figcaption {
-      color: $secondary-accent;
-    }
   }
 
   @media (max-width: $breakpoint-large) {

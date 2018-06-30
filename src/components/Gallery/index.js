@@ -10,7 +10,6 @@ class Gallery extends React.PureComponent {
   static propTypes = {
     title: PropTypes.string,
     items: PropTypes.array.isRequired,
-    columns: PropTypes.integer,
     itemHeight: PropTypes.string
   };
 
@@ -30,7 +29,6 @@ class Gallery extends React.PureComponent {
           {items.map(i => {
             const figure = (
               <figure
-                key={i.key}
                 className={style.gallery_item}
                 style={{
                   flexBasis: `calc(90% / ${columns})`
@@ -54,10 +52,14 @@ class Gallery extends React.PureComponent {
             );
 
             if (i.slug) {
-              return <Link to={i.slug}>{figure}</Link>;
+              return (
+                <Link key={i.key} to={i.slug}>
+                  {figure}
+                </Link>
+              );
             }
 
-            return figure;
+            return <div key={i.key}>{figure}</div>;
           })}
         </div>
       </div>

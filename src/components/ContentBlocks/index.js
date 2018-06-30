@@ -29,7 +29,6 @@ class ContentBlock extends React.PureComponent {
           {items.map(i => {
             const figure = (
               <div
-                key={i.key}
                 className={style.contentblocks_item}
                 style={{
                   flexBasis: `calc(90% / ${columns})`
@@ -54,10 +53,14 @@ class ContentBlock extends React.PureComponent {
             );
 
             if (i.slug) {
-              return <Link to={i.slug}>{figure}</Link>;
+              return (
+                <Link key={i.key} to={i.slug}>
+                  {figure}
+                </Link>
+              );
             }
 
-            return <div>{figure}</div>;
+            return <div key={i.key}>{figure}</div>;
           })}
         </div>
       </div>
