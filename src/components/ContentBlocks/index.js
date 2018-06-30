@@ -57,7 +57,7 @@ class ContentBlock extends React.PureComponent {
               return <Link to={i.slug}>{figure}</Link>;
             }
 
-            return figure;
+            return <div>{figure}</div>;
           })}
         </div>
       </div>
