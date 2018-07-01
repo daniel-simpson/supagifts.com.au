@@ -1,3 +1,5 @@
+@import "../../styles/_sizing";
+
 .noContent {
   //height: 2rem;
 }
@@ -19,6 +21,15 @@
   ol {
     li {
       list-style: initial;
+    }
+  }
+
+  img {
+    max-width: 100%;
+
+    @media (min-width: $breakpoint-medium) {
+      float: right;
+      max-width: 50%;
     }
   }
 }
