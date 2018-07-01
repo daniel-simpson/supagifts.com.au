@@ -31,6 +31,7 @@ module.exports = {
       options: {
         id: `GTM-W5DJ5H6`
       }
-    }
+    },
+    `gatsby-plugin-netlify`
   ]
 };
