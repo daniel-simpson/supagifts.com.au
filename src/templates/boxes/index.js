@@ -34,7 +34,7 @@ class BoxPageTemplate extends React.Component {
 
     return (
       <div>
-        <Helmet title={`${name} Gift Box | supa gifts australia`} />
+        <Helmet title={`${name} gift box | supa gifts australia`} />
         <div className="container">
           <div className={style.boxpage_wrapper}>
             <img src={heroImage} className={style.box_image} />
@@ -43,7 +43,7 @@ class BoxPageTemplate extends React.Component {
                 className={`${style.box_name} hero-heading hero-heading-dark`}
               >
                 {`${name} `}
-                <span className="title-light">Gift Box</span>
+                <span className="title-light">gift box</span>
               </h1>
 
               <Wysiwyg content={content} />
