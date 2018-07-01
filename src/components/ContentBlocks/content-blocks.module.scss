@@ -39,6 +39,13 @@
   border: 2px solid $secondary-dark;
   padding: 1em;
 
+  a {
+    color: $primary-dark;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .contentblocks_image {
     object-fit: contain;
     margin: 0;
