@@ -23,24 +23,6 @@
     color: $secondary-dark;
   }
 
-  *:nth-child(2n) {
-    .contentblocks_item {
-      border: 2px solid $secondary-accent;
-      color: $secondary-accent;
-
-      
-      @media (min-width: $breakpoint-large) {
-        .contentblocks_image {
-          order: 2;
-        }
-
-        .contentblocks__item_description {
-          order: 1;
-        }
-      }
-    }
-  }
-
   @media (min-width: $breakpoint-large) {
     align-items: flex-start;
   }
@@ -80,13 +62,4 @@
 .contentblocks__item_description {
   text-align: center;
   width: 100%;
-}
-
-//TODO: Remove this, only temporary
-.contentblocks_image {
-  order: 2;
-}
-
-.contentblocks__item_description {
-  order: 1;
 }
