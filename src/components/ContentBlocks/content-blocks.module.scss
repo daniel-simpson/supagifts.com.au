@@ -23,7 +23,7 @@
     color: $secondary-dark;
   }
 
-  @media (min-width: $breakpoint-large) {
+  @media (min-width: $breakpoint-medium) {
     align-items: flex-start;
   }
 }
@@ -31,6 +31,7 @@
 .contentblocks_item {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   width: 100%;
   margin-bottom: 2em;
 
@@ -41,14 +42,20 @@
   .contentblocks_image {
     object-fit: contain;
     margin: 0;
+    @media(min-width: $breakpoint-medium) {
+      max-width: 33%;
+    }
   }
 
   .contentblocks__item_description {
     color: $secondary-dark;
     padding: 1em;
+    @media(min-width: $breakpoint-medium) {
+      max-width: 66%;
+    }
   }
 
-  @media (min-width: $breakpoint-large) {
+  @media (min-width: $breakpoint-medium) {
     flex-direction: row;
     align-items: center;
   }
