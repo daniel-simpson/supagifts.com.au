@@ -3,9 +3,9 @@ module.exports = {
     siteUrl: `https://supagifts.com.au`,
     title: `Supagifts`,
     buyLink: {
-      isExternal: true,
+      isExternal: false,
       title: "Buy now",
-      url: "https://supa-gifts.paperform.co"
+      url: "/buy"
     }
   },
   plugins: [
