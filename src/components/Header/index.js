@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import Headroom from "react-headroom";
 
-import DropdownMenu from "../DropdownMenu";
-
 import style from "./header.module.scss";
 
 class Header extends React.PureComponent {
@@ -59,8 +57,10 @@ class Header extends React.PureComponent {
               <ul>
                 {menuItems.map(m => (
                   <li key={m.id}>
-                    {m.children && m.children.length ? (
-                      <DropdownMenu data={m} />
+                    {m.url && !m.slug ? (
+                      <a href={m.url} target="_blank">
+                        {m.title}
+                      </a>
                     ) : (
                       <Link to={m.slug}>{m.title}</Link>
                     )}

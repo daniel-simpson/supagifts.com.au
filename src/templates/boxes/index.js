@@ -25,6 +25,8 @@ class BoxPageTemplate extends React.Component {
       giftBoxItems
     } = this.props.data.contentfulGiftBox;
 
+    const { buyLink } = this.props.data.site.siteMetadata;
+
     const heroImage =
       images && images.length
         ? `${images[0].file.url}?w=800&fm=jpg&fl=progressive`
@@ -46,7 +48,11 @@ class BoxPageTemplate extends React.Component {
 
               <Wysiwyg content={content} />
 
-              <CTA text="Buy now" url="/buy" />
+              <CTA
+                text={buyLink.title}
+                isExternal={buyLink.isExternal}
+                url={buyLink.url}
+              />
             </div>
           </div>
         </div>
@@ -63,7 +69,11 @@ class BoxPageTemplate extends React.Component {
         />
 
         <div className="container">
-          <CTA text="Buy now" url="/buy" />
+          <CTA
+            text={buyLink.title}
+            isExternal={buyLink.isExternal}
+            url={buyLink.url}
+          />
         </div>
       </div>
     );
@@ -74,6 +84,15 @@ export default BoxPageTemplate;
 
 export const pageQuery = graphql`
   query boxQuery($id: String!) {
+    site {
+      siteMetadata {
+        buyLink {
+          isExternal
+          title
+          url
+        }
+      }
+    }
     contentfulGiftBox(id: { eq: $id }) {
       id
       name

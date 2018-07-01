@@ -17,6 +17,18 @@ class TemplateWrapper extends React.PureComponent {
 
   render() {
     const { children, data } = this.props;
+    const buyLink = data.site.siteMetadata.buyLink;
+
+    let buy = {
+      id: "buy",
+      title: buyLink.title
+    };
+
+    if (buyLink.isExternal) {
+      buy.url = buyLink.url;
+    } else {
+      buy.slug = buyLink.url;
+    }
 
     const headerMenuItems = [
       {
@@ -39,11 +51,7 @@ class TemplateWrapper extends React.PureComponent {
         title: "Plastic Oceans Australiasia",
         slug: "/plastic-oceans-australasia"
       },
-      {
-        id: "buy",
-        title: "Buy now",
-        slug: "/buy"
-      }
+      buy
     ];
 
     const footerMenuItems = [
@@ -92,6 +100,15 @@ export default TemplateWrapper;
 
 export const pageQuery = graphql`
   query headerQuery {
+    site {
+      siteMetadata {
+        buyLink {
+          isExternal
+          title
+          url
+        }
+      }
+    }
     allContentfulGiftBox {
       edges {
         node {

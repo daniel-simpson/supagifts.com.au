@@ -1,7 +1,12 @@
 module.exports = {
   siteMetadata: {
     siteUrl: `https://supagifts.com.au`,
-    title: `Supagifts`
+    title: `Supagifts`,
+    buyLink: {
+      isExternal: true,
+      title: "Buy now",
+      url: "https://supa-gifts.paperform.co"
+    }
   },
   plugins: [
     {
