@@ -51,15 +51,16 @@ class ContentBlock extends React.PureComponent {
             if (i.slug) {
               return (
                 <Link
-                  className={style.contentblocks_item}
                   style={{
                     flexBasis: `calc(90% / ${columns})`
                   }}
                   key={i.key}
                   to={i.slug}
                 >
-                  {image}
-                  {description}
+                  <div className={style.contentblocks_item}>
+                    {image}
+                    {description}
+                  </div>
                 </Link>
               );
             }
