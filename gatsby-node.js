@@ -111,7 +111,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   };
 
   return Promise.all([
-    new Promise(generateBlogPages),
+    //new Promise(generateBlogPages),
     new Promise(generateContentPages),
     new Promise(generateBoxPages)
   ]);

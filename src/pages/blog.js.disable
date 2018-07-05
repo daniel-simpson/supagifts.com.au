@@ -59,13 +59,7 @@ class BlogListingPage extends React.PureComponent {
     return (
       <div className="container">
         <h1>Blog</h1>
-        <p>
-          Ham hock prosciutto salami venison pastrami flank. Sausage leberkäse
-          flank t-bone meatball kielbasa, strip steak ham pork loin turkey swine
-          cow tenderloin jowl. Venison pig kielbasa meatball, rump pork loin
-          chicken hamburger salami bresaola sausage meatloaf ham chuck short
-          loin. (From http://baconipsum.com/)
-        </p>
+        <p>Coming soon...</p>
         <ul>
           {paginatedBlogs.map(b => (
             <li key={b.id}>
