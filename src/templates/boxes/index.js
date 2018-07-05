@@ -34,7 +34,11 @@ class BoxPageTemplate extends React.Component {
 
     return (
       <div>
-        <Helmet title={`${name} gift box | supa gifts australia`} />
+        <Helmet
+          title={`${name} gift box | supa gifts australia`}
+          description={`${name} gift box is a thoughtful present that contains a number of items that can help reduce your plastic waste on a daily basis.`}
+        />
+
         <div className="container">
           <div className={style.boxpage_wrapper}>
             <img src={heroImage} className={style.box_image} />

@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
+import Helmet from "react-helmet";
 
 import ContentBlocks from "../components/ContentBlocks";
 import Gallery from "../components/Gallery";
 import HeroBanner from "../components/HeroBanner";
-import Wysiwyg from "../components/Wysiwyg";
 
 class IndexPage extends React.PureComponent {
   static propTypes = {
@@ -36,6 +36,11 @@ class IndexPage extends React.PureComponent {
 
     return (
       <div>
+        <Helmet
+          title="Home | supa gifts australia"
+          description="Supa gifts australia is a gift box company with a conscience.  Each box has been thoughtfully created to minimise plastic waste while giving a luxurious and reusable gift that really means something."
+        />
+
         <HeroBanner imageUrl={heroImage}>
           <h1 className="hero-heading">
             Welcome to supa&nbsp;<span className="title-light">gifts</span>!
