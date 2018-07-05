@@ -23,7 +23,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography.js`
+        pathToConfigModule: `src/utils/typography.js`,
+        omitGoogleFont: true
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Arapey\:400,800`, `Oxygen\:300,700`]
       }
     },
     {
