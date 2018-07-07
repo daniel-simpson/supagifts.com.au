@@ -83,6 +83,14 @@ class TemplateWrapper extends React.PureComponent {
           title="supa gifts australia"
           meta={[
             {
+              name: "og:site_name",
+              content: "supa gifts australia"
+            },
+            {
+              name: "og:type",
+              content: "website"
+            },
+            {
               name: "og:image",
               content:
                 "https://supagifts.com.au/assets/images/logo_and_tagline.png"
