@@ -79,7 +79,16 @@ class TemplateWrapper extends React.PureComponent {
 
     return (
       <div>
-        <Helmet title="supa gifts australia" />
+        <Helmet
+          title="supa gifts australia"
+          meta={[
+            {
+              name: "og:image",
+              content:
+                "https://supagifts.com.au/assets/images/logo_and_tagline.png"
+            }
+          ]}
+        />
         <Header menuItems={headerMenuItems} footerItems={footerMenuItems} />
 
         <main
