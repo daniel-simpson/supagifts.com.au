@@ -4,3 +4,6 @@ node_modules/
 public/
 
 Design/
+
+# Hide contentful environment... will need to set this up on each dev machine + netlify
+.contentful.env.js

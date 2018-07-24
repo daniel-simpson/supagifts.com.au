@@ -13,7 +13,9 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `n7wztldh26q4`,
-        accessToken: `7e88de2164274d3f5720e2e623a367c71c663c43b3d030cc6ec113e62e6b2017`
+        accessToken:
+          process.env.SUPA_GIFTS_CD_TOKEN ||
+          require("./.contentful.env").SUPA_GIFTS_CD_TOKEN
       }
     },
     `gatsby-plugin-react-helmet`,
