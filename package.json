@@ -1,5 +1,5 @@
 {
-  "name": "Postpeople",
+  "name": "supagifts.com.au",
   "version": "1.0.0",
   "description": "",
   "main": "n/a",
@@ -9,16 +9,8 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/Postpeople.tv/Website.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/Postpeople.tv/Website/issues"
-  },
-  "homepage": "https://gitlab.com/Postpeople.tv/Website#README",
   "dependencies": {
     "classnames": "^2.2.5",
     "contentful": "^6.1.1",
