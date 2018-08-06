@@ -48,7 +48,7 @@ class TemplateWrapper extends React.PureComponent {
       },
       {
         id: "plastic-oceans",
-        title: "Plastic Oceans Australiasia",
+        title: "Plastic Oceans Australasia",
         slug: "/plastic-oceans-australasia"
       },
       buy
