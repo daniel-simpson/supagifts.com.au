@@ -21,7 +21,7 @@ class Footer extends React.PureComponent {
                 {m.slug ? (
                   <Link to={m.slug}>{m.title}</Link>
                 ) : (
-                  <a href={m.url} target="_blank">
+                  <a href={m.url} target="_blank" rel="noopener noreferrer">
                     {m.title}
                   </a>
                 )}

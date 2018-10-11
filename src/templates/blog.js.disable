@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, StaticQuery } from "gatsby";
 import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 
@@ -41,9 +41,7 @@ class BlogTemplate extends React.Component {
   }
 }
 
-export default BlogTemplate;
-
-export const pageQuery = graphql`
+const query = graphql`
   query blogQuery($id: String!) {
     contentfulBlog(id: { eq: $id }) {
       id
@@ -67,3 +65,7 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default props => (
+  <StaticQuery render={<BlogTemplate data={data} {...props} />} query={query} />
+);
