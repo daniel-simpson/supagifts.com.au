@@ -69,19 +69,6 @@ main {
   min-height: calc(100vh - 120px);
 }
 
-.container,
-.content-container {
-  background: rgba(255, 255, 255, 0.9);
-
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 1rem 1.0875rem;
-}
-
-.content-container {
-  padding-top: 0;
-}
-
 .hero {
   display: grid;
   align-items: center;

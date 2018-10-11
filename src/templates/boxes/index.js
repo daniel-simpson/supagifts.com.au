@@ -4,6 +4,7 @@ import * as PropTypes from "prop-types";
 import Helmet from "react-helmet";
 
 import Layout from "../../layouts";
+import Container from "../../layouts/container";
 import ContentBlocks from "../../components/ContentBlocks";
 import CTA from "../../components/CTA";
 import Wysiwyg from "../../components/Wysiwyg";
@@ -32,53 +33,53 @@ class BoxPageTemplate extends React.Component {
 
     return (
       <Layout>
-        <div>
-          <Helmet
-            title={`${name} gift box | supa gifts australia`}
-            description={`${name} gift box is a thoughtful present that contains a number of items that can help reduce your plastic waste on a daily basis.`}
-          />
+        <Helmet
+          title={`${name} gift box | supa gifts australia`}
+          description={`${name} gift box is a thoughtful present that contains a number of items that can help reduce your plastic waste on a daily basis.`}
+        />
 
-          <div className="container">
-            <div className={style.boxpage_wrapper}>
-              <img src={heroImage} alt="" className={style.box_image} />
-              <div className={`${style.content} content-container`}>
-                <h1
-                  className={`${style.box_name} hero-heading hero-heading-dark`}
-                >
-                  {`${name} `}
-                  <span className="title-light">gift box</span>
-                </h1>
+        <Container>
+          <div className={style.boxpage_wrapper}>
+            <img src={heroImage} alt="" className={style.box_image} />
 
-                <Wysiwyg content={content} />
+            <div className={style.content}>
+              <h1
+                className={`${style.box_name} hero-heading hero-heading-dark`}
+              >
+                {`${name} `}
+                <span className="title-light">gift box</span>
+              </h1>
 
-                <CTA
-                  text={buyLink.title}
-                  isExternal={buyLink.isExternal}
-                  url={buyLink.url}
-                />
-              </div>
+              <Wysiwyg content={content} />
+
+              <CTA
+                text={buyLink.title}
+                isExternal={buyLink.isExternal}
+                url={buyLink.url}
+              />
             </div>
           </div>
-          <ContentBlocks
-            title="Included in this box:"
-            columns="2"
-            items={giftBoxItems.map(i => ({
-              key: i.id,
-              title: i.title,
-              description: i.description,
-              img: i.image && i.image.file ? i.image.file.url : null,
-              slug: i.moreInfo
-            }))}
-          />
+        </Container>
 
-          <div className="container">
-            <CTA
-              text={buyLink.title}
-              isExternal={buyLink.isExternal}
-              url={buyLink.url}
-            />
-          </div>
-        </div>
+        <ContentBlocks
+          title="Included in this box:"
+          columns="2"
+          items={giftBoxItems.map(i => ({
+            key: i.id,
+            title: i.title,
+            description: i.description,
+            img: i.image && i.image.file ? i.image.file.url : null,
+            slug: i.moreInfo
+          }))}
+        />
+
+        <Container>
+          <CTA
+            text={buyLink.title}
+            isExternal={buyLink.isExternal}
+            url={buyLink.url}
+          />
+        </Container>
       </Layout>
     );
   }

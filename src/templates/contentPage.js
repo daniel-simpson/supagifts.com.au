@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../layouts";
+import Container from "../layouts/container";
 import HeroBanner from "../components/HeroBanner";
 import PaperformEmbed from "../components/PaperformEmbed";
 import Wysiwyg from "../components/Wysiwyg";
@@ -22,14 +23,13 @@ class ContentPageTemplate extends React.Component {
 
     return (
       <Layout>
-        <div>
-          <HeroBanner heading={title} imageUrl={imageSrc} />
+        <HeroBanner heading={title} imageUrl={imageSrc} />
 
-          <div className="container">
-            <Wysiwyg content={content} />
-            {paperformEmbedId ? <PaperformEmbed id={paperformEmbedId} /> : null}
-          </div>
-        </div>
+        <Container>
+          <Wysiwyg content={content} />
+
+          {paperformEmbedId ? <PaperformEmbed id={paperformEmbedId} /> : null}
+        </Container>
       </Layout>
     );
   }

@@ -37,36 +37,34 @@ class IndexPage extends React.PureComponent {
 
     return (
       <Layout>
-        <div>
-          <Helmet
-            title="Home | supa gifts australia"
-            description="Supa gifts australia is a gift box company with a conscience.  Each box has been thoughtfully created to minimise plastic waste while giving a luxurious and reusable gift that really means something."
-          />
+        <Helmet
+          title="Home | supa gifts australia"
+          description="Supa gifts australia is a gift box company with a conscience.  Each box has been thoughtfully created to minimise plastic waste while giving a luxurious and reusable gift that really means something."
+        />
 
-          <HeroBanner
-            heading={[
-              <span key="0">Welcome to supa&nbsp;</span>,
-              <span key="1" className="title-light">
-                gifts&#33;
-              </span>
-            ]}
-            description="Quality gift boxes that promote great environmental habits"
-            imageUrl={heroImage}
-          />
+        <HeroBanner
+          heading={[
+            <span key="0">Welcome to supa&nbsp;</span>,
+            <span key="1" className="title-light">
+              gifts&#33;
+            </span>
+          ]}
+          description="Quality gift boxes that promote great environmental habits"
+          imageUrl={heroImage}
+        />
 
-          <Gallery
-            title="Gift Boxes"
-            items={giftBoxes}
-            columns="3"
-            itemHeight="400px"
-          />
+        <Gallery
+          title="Gift Boxes"
+          items={giftBoxes}
+          columns="3"
+          itemHeight="400px"
+        />
 
-          <ContentBlocks
-            title="Featured Items"
-            items={featuredItems}
-            columns="4"
-          />
-        </div>
+        <ContentBlocks
+          title="Featured Items"
+          items={featuredItems}
+          columns="4"
+        />
       </Layout>
     );
   }
