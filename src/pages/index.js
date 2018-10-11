@@ -43,13 +43,14 @@ class IndexPage extends React.PureComponent {
             description="Supa gifts australia is a gift box company with a conscience.  Each box has been thoughtfully created to minimise plastic waste while giving a luxurious and reusable gift that really means something."
           />
 
-          <HeroBanner imageUrl={heroImage}>
-            <h1 className="hero-heading">
-              Welcome to supa&nbsp;
-              <span className="title-light">gifts</span>!
-            </h1>
-            <h3>Quality gift boxes that promote great environmental habits</h3>
-          </HeroBanner>
+          <HeroBanner
+            heading={[
+              <span>Welcome to supa&nbsp;</span>,
+              <span className="title-light">gifts&#33;</span>
+            ]}
+            description="Quality gift boxes that promote great environmental habits"
+            imageUrl={heroImage}
+          />
 
           <Gallery
             title="Gift Boxes"
@@ -57,6 +58,7 @@ class IndexPage extends React.PureComponent {
             columns="3"
             itemHeight="400px"
           />
+
           <ContentBlocks
             title="Featured Items"
             items={featuredItems}

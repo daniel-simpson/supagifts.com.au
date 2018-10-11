@@ -5,26 +5,28 @@ import styles from "./hero-banner.module.scss";
 
 class HeroBanner extends React.PureComponent {
   static propTypes = {
+    heading: PropTypes.element.isRequired,
+    description: PropTypes.element,
     imageUrl: PropTypes.string
   };
 
   render() {
-    const { imageUrl, children } = this.props;
+    const { heading, description, imageUrl } = this.props;
 
-    if (!imageUrl) {
-      return <div style={{ marginTop: "1rem" }}>{children}</div>;
-    }
-
-    const imageSrc = `url(${imageUrl}?w=960&fm=jpg&fl=progressive)`;
+    const hasImage = imageUrl && imageUrl.length;
 
     return (
       <div
         className={styles.hero}
         style={{
-          backgroundImage: imageSrc
+          backgroundImage: hasImage
+            ? `url(${imageUrl}?w=960&fm=jpg&fl=progressive)`
+            : null,
+          marginTop: !hasImage ? "1rem" : null
         }}
       >
-        {children}
+        <h1 className="heroHeading">{heading}</h1>
+        {description && description.length ? <h3>{description}</h3> : null}
       </div>
     );
   }

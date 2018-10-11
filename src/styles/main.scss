@@ -130,20 +130,17 @@ footer {
   width: auto;
 }
 
-h1 {
+h1.heroHeading {
   color: white;
-  font-size: 4em;
+  font-size: 4rem;
   padding: 0.5em;
+  border: 3px solid white;
   text-align: center;
-  z-index: 2;
 
-  > p {
-    font-size: 2rem;
-    margin-top: 1em;
-  }
-
-  &.hero-heading {
-    border: 3px solid white;
+  > p,
+  span {
+    color: inherit;
+    font-size: inherit;
   }
 
   &.hero-heading-dark {
