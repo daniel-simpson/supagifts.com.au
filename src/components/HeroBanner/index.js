@@ -18,7 +18,7 @@ class HeroBanner extends React.PureComponent {
           marginTop: !hasImage ? "1rem" : null
         }}
       >
-        <h1 className="heroHeading">{heading}</h1>
+        <h1 className="hero-heading">{heading}</h1>
         {description && description.length ? <h3>{description}</h3> : null}
       </div>
     );

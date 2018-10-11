@@ -130,7 +130,7 @@ footer {
   width: auto;
 }
 
-h1.heroHeading {
+h1.hero-heading {
   color: white;
   font-size: 4rem;
   padding: 0.5em;
@@ -144,6 +144,7 @@ h1.heroHeading {
   }
 
   &.hero-heading-dark {
+    color: $primary-dark;
     border: 3px solid $primary-dark;
   }
 
