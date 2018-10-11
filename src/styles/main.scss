@@ -1,4 +1,3 @@
-@import "./_mixins";
 @import "./_palette";
 @import "./_sizing";
 
@@ -92,15 +91,6 @@ main {
   p {
     text-align: center;
   }
-}
-
-button {
-  border: 1px solid $secondary-dark;
-  border-radius: 5px;
-  background-color: $secondary-dark;
-  color: white;
-
-  @include animated-drop-shadow(4);
 }
 
 footer {
