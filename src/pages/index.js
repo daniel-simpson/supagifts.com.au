@@ -45,8 +45,10 @@ class IndexPage extends React.PureComponent {
 
           <HeroBanner
             heading={[
-              <span>Welcome to supa&nbsp;</span>,
-              <span className="title-light">gifts&#33;</span>
+              <span key="0">Welcome to supa&nbsp;</span>,
+              <span key="1" className="title-light">
+                gifts&#33;
+              </span>
             ]}
             description="Quality gift boxes that promote great environmental habits"
             imageUrl={heroImage}

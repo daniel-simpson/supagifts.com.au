@@ -3,7 +3,7 @@ import gray from "gray-percentage";
 import { MOBILE_MEDIA_QUERY } from "typography-breakpoint-constants";
 
 const theme = {
-  title: "Funston",
+  title: "Supagifts",
   baseFontSize: "16px",
   baseLineHeight: 1.5,
   googleFonts: [

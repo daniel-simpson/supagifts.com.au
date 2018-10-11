@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import * as PropTypes from "prop-types";
 
 import Layout from "../layouts";
 import HeroBanner from "../components/HeroBanner";
@@ -8,9 +7,6 @@ import PaperformEmbed from "../components/PaperformEmbed";
 import Wysiwyg from "../components/Wysiwyg";
 
 class ContentPageTemplate extends React.Component {
-  static propTypes = {
-    data: PropTypes.object.isRequired
-  };
   render() {
     const {
       title,

@@ -1,15 +1,8 @@
 import React from "react";
-import * as PropTypes from "prop-types";
 
 import styles from "./hero-banner.module.scss";
 
 class HeroBanner extends React.PureComponent {
-  static propTypes = {
-    heading: PropTypes.element.isRequired,
-    description: PropTypes.element,
-    imageUrl: PropTypes.string
-  };
-
   render() {
     const { heading, description, imageUrl } = this.props;
 
