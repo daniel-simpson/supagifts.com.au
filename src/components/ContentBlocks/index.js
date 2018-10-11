@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "gatsby-link";
 
 import Wysiwyg from "../Wysiwyg";
 
@@ -15,7 +14,7 @@ class ContentBlock extends React.PureComponent {
 
   render() {
     const { title, items } = this.props;
-    if (items.length == 0) {
+    if (items.length === 0) {
       return null;
     }
 
@@ -34,6 +33,7 @@ class ContentBlock extends React.PureComponent {
                   height: itemHeight
                 }}
                 src={i.img}
+                alt={i.alt}
               />
             );
 

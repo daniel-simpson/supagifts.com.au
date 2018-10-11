@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
-import Headroom from "react-headroom";
 
 import style from "./header.module.scss";
 
@@ -58,7 +57,7 @@ class Header extends React.PureComponent {
                 {menuItems.map(m => (
                   <li key={m.id}>
                     {m.url && !m.slug ? (
-                      <a href={m.url} target="_blank">
+                      <a href={m.url} target="_blank" rel="noopener noreferrer">
                         {m.title}
                       </a>
                     ) : (
@@ -90,12 +89,12 @@ class Header extends React.PureComponent {
               e.stopPropagation();
             }}
           >
-            <a
+            <button
               className={style.mobile_nav__trigger_close}
               onClick={this.hideMobileNav.bind(this)}
             >
               Close
-            </a>
+            </button>
             <ul>
               <li>
                 <Link to="/" className={style.primary}>
@@ -108,6 +107,7 @@ class Header extends React.PureComponent {
                     <a
                       href={m.url}
                       target="_blank"
+                      rel="noopener noreferrer"
                       onClick={this.hideMobileNav.bind(this)}
                     >
                       {m.title}

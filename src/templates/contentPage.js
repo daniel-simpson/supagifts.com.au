@@ -1,7 +1,8 @@
 import React from "react";
-import Link from "gatsby-link";
+import { graphql } from "gatsby";
 import * as PropTypes from "prop-types";
 
+import Layout from "../layouts";
 import HeroBanner from "../components/HeroBanner";
 import PaperformEmbed from "../components/PaperformEmbed";
 import Wysiwyg from "../components/Wysiwyg";
@@ -12,7 +13,6 @@ class ContentPageTemplate extends React.Component {
   };
   render() {
     const {
-      id,
       title,
       heroImage,
       content,
@@ -24,25 +24,17 @@ class ContentPageTemplate extends React.Component {
         ? heroImage.file.url
         : "";
 
-    const titleWords = title.split(" ");
-    const titleElement =
-      titleWords.length == 2 ? (
-        <h1 className="hero-heading">
-          {`${titleWords[0]} `}
-          <span className="title-light">{titleWords[1]}</span>
-        </h1>
-      ) : (
-        <h1 className="hero-heading">{title}</h1>
-      );
-
     return (
-      <div>
-        <HeroBanner imageUrl={imageSrc}>{titleElement}</HeroBanner>
-        <div className="container">
-          <Wysiwyg content={content} />
-          {paperformEmbedId ? <PaperformEmbed id={paperformEmbedId} /> : null}
+      <Layout>
+        <div>
+          <HeroBanner heading={title} imageUrl={imageSrc} />
+
+          <div className="container">
+            <Wysiwyg content={content} />
+            {paperformEmbedId ? <PaperformEmbed id={paperformEmbedId} /> : null}
+          </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 }

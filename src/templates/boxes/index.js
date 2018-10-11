@@ -1,12 +1,11 @@
 import React from "react";
-import Link from "gatsby-link";
+import { graphql } from "gatsby";
 import * as PropTypes from "prop-types";
 import Helmet from "react-helmet";
 
+import Layout from "../../layouts";
 import ContentBlocks from "../../components/ContentBlocks";
 import CTA from "../../components/CTA";
-import Gallery from "../../components/Gallery";
-import HeroBanner from "../../components/HeroBanner";
 import Wysiwyg from "../../components/Wysiwyg";
 
 import style from "./boxes.module.scss";
@@ -18,7 +17,6 @@ class BoxPageTemplate extends React.Component {
 
   render() {
     const {
-      id,
       name,
       images,
       content,
@@ -33,53 +31,55 @@ class BoxPageTemplate extends React.Component {
         : "";
 
     return (
-      <div>
-        <Helmet
-          title={`${name} gift box | supa gifts australia`}
-          description={`${name} gift box is a thoughtful present that contains a number of items that can help reduce your plastic waste on a daily basis.`}
-        />
+      <Layout>
+        <div>
+          <Helmet
+            title={`${name} gift box | supa gifts australia`}
+            description={`${name} gift box is a thoughtful present that contains a number of items that can help reduce your plastic waste on a daily basis.`}
+          />
 
-        <div className="container">
-          <div className={style.boxpage_wrapper}>
-            <img src={heroImage} className={style.box_image} />
-            <div className={`${style.content} content-container`}>
-              <h1
-                className={`${style.box_name} hero-heading hero-heading-dark`}
-              >
-                {`${name} `}
-                <span className="title-light">gift box</span>
-              </h1>
+          <div className="container">
+            <div className={style.boxpage_wrapper}>
+              <img src={heroImage} alt="" className={style.box_image} />
+              <div className={`${style.content} content-container`}>
+                <h1
+                  className={`${style.box_name} hero-heading hero-heading-dark`}
+                >
+                  {`${name} `}
+                  <span className="title-light">gift box</span>
+                </h1>
 
-              <Wysiwyg content={content} />
+                <Wysiwyg content={content} />
 
-              <CTA
-                text={buyLink.title}
-                isExternal={buyLink.isExternal}
-                url={buyLink.url}
-              />
+                <CTA
+                  text={buyLink.title}
+                  isExternal={buyLink.isExternal}
+                  url={buyLink.url}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <ContentBlocks
-          title="Included in this box:"
-          columns="2"
-          items={giftBoxItems.map(i => ({
-            key: i.id,
-            title: i.title,
-            description: i.description,
-            img: i.image && i.image.file ? i.image.file.url : null,
-            slug: i.moreInfo
-          }))}
-        />
-
-        <div className="container">
-          <CTA
-            text={buyLink.title}
-            isExternal={buyLink.isExternal}
-            url={buyLink.url}
+          <ContentBlocks
+            title="Included in this box:"
+            columns="2"
+            items={giftBoxItems.map(i => ({
+              key: i.id,
+              title: i.title,
+              description: i.description,
+              img: i.image && i.image.file ? i.image.file.url : null,
+              slug: i.moreInfo
+            }))}
           />
+
+          <div className="container">
+            <CTA
+              text={buyLink.title}
+              isExternal={buyLink.isExternal}
+              url={buyLink.url}
+            />
+          </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 }

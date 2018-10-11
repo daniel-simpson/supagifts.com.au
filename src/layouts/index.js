@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Link from "gatsby-link";
+import { graphql, StaticQuery } from "gatsby";
 import Helmet from "react-helmet";
 
 import Header from "../components/Header";
@@ -9,12 +8,6 @@ import Footer from "../components/Footer";
 import "../styles/main.scss";
 
 class TemplateWrapper extends React.PureComponent {
-  static propTypes = {
-    data: PropTypes.object.isRequired,
-    menu: PropTypes.func,
-    children: PropTypes.func
-  };
-
   render() {
     const { children, data } = this.props;
     const buyLink = data.site.siteMetadata.buyLink;
@@ -105,7 +98,7 @@ class TemplateWrapper extends React.PureComponent {
             paddingTop: 0
           }}
         >
-          {children()}
+          {children}
           <Footer menuItems={footerMenuItems} />
         </main>
       </div>
@@ -113,9 +106,7 @@ class TemplateWrapper extends React.PureComponent {
   }
 }
 
-export default TemplateWrapper;
-
-export const pageQuery = graphql`
+const query = graphql`
   query headerQuery {
     site {
       siteMetadata {
@@ -146,3 +137,10 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default props => (
+  <StaticQuery
+    query={query}
+    render={data => <TemplateWrapper data={data} {...props} />}
+  />
+);

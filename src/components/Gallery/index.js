@@ -15,7 +15,7 @@ class Gallery extends React.PureComponent {
 
   render() {
     const { title, items } = this.props;
-    if (items.length == 0) {
+    if (items.length === 0) {
       return null;
     }
 
@@ -35,6 +35,7 @@ class Gallery extends React.PureComponent {
                     height: itemHeight
                   }}
                   src={i.img}
+                  alt={i.alt}
                 />
                 <figcaption className={style.gallery__item_description}>
                   {i.description && i.description.childMarkdownRemark ? (

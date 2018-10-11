@@ -1,8 +1,9 @@
 import React from "react";
+import { graphql } from "gatsby";
 import PropTypes from "prop-types";
-import Link from "gatsby-link";
 import Helmet from "react-helmet";
 
+import Layout from "../layouts";
 import ContentBlocks from "../components/ContentBlocks";
 import Gallery from "../components/Gallery";
 import HeroBanner from "../components/HeroBanner";
@@ -35,31 +36,36 @@ class IndexPage extends React.PureComponent {
     const heroImage = homepageData.heroImage.file.url;
 
     return (
-      <div>
-        <Helmet
-          title="Home | supa gifts australia"
-          description="Supa gifts australia is a gift box company with a conscience.  Each box has been thoughtfully created to minimise plastic waste while giving a luxurious and reusable gift that really means something."
-        />
+      <Layout>
+        <div>
+          <Helmet
+            title="Home | supa gifts australia"
+            description="Supa gifts australia is a gift box company with a conscience.  Each box has been thoughtfully created to minimise plastic waste while giving a luxurious and reusable gift that really means something."
+          />
 
-        <HeroBanner imageUrl={heroImage}>
-          <h1 className="hero-heading">
-            Welcome to supa&nbsp;<span className="title-light">gifts</span>!
-          </h1>
-          <h3>Quality gift boxes that promote great environmental habits</h3>
-        </HeroBanner>
+          <HeroBanner
+            heading={[
+              <span>Welcome to supa&nbsp;</span>,
+              <span className="title-light">gifts&#33;</span>
+            ]}
+            description="Quality gift boxes that promote great environmental habits"
+            imageUrl={heroImage}
+          />
 
-        <Gallery
-          title="Gift Boxes"
-          items={giftBoxes}
-          columns="3"
-          itemHeight="400px"
-        />
-        <ContentBlocks
-          title="Featured Items"
-          items={featuredItems}
-          columns="4"
-        />
-      </div>
+          <Gallery
+            title="Gift Boxes"
+            items={giftBoxes}
+            columns="3"
+            itemHeight="400px"
+          />
+
+          <ContentBlocks
+            title="Featured Items"
+            items={featuredItems}
+            columns="4"
+          />
+        </div>
+      </Layout>
     );
   }
 }

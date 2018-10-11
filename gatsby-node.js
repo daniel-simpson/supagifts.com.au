@@ -3,8 +3,8 @@ const Promise = require(`bluebird`);
 const path = require(`path`);
 const slash = require(`slash`);
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
 
   var generateBlogPages = (resolve, reject) => {
     graphql(
@@ -115,20 +115,4 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     new Promise(generateContentPages),
     new Promise(generateBoxPages)
   ]);
-};
-
-exports.onCreatePage = async ({ page, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
-
-  return new Promise((resolve, reject) => {
-    if (page.path.match(/^\/buy/)) {
-      // It's assumed that `landingPage.js` exists in the `/layouts/` directory
-      page.layout = "funnel";
-
-      // Update the page.
-      createPage(page);
-    }
-
-    resolve();
-  });
 };

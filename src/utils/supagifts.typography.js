@@ -1,9 +1,8 @@
 // @flow
-import type { OptionsType } from "Types";
 import gray from "gray-percentage";
 import { MOBILE_MEDIA_QUERY } from "typography-breakpoint-constants";
 
-const theme: OptionsType = {
+const theme = {
   title: "Funston",
   baseFontSize: "16px",
   baseLineHeight: 1.5,
