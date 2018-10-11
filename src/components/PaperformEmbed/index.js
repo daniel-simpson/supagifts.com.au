@@ -20,7 +20,7 @@ class PaperformEmbed extends React.PureComponent {
   }
 
   render() {
-    const id = this.props.id;
+    const { id } = this.props;
 
     return (
       <div className="loader">

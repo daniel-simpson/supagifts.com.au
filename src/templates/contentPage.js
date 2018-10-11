@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import _ from "lodash";
 
 import Layout from "../layouts";
 import Container from "../layouts/container";
@@ -16,10 +17,7 @@ class ContentPageTemplate extends React.Component {
       paperformEmbedId
     } = this.props.data.contentfulContentPage;
 
-    const imageSrc =
-      heroImage && heroImage.file && heroImage.file.url
-        ? heroImage.file.url
-        : "";
+    const imageSrc = _.get(heroImage, "file.url");
 
     return (
       <Layout>

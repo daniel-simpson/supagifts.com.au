@@ -90,6 +90,7 @@ class TemplateWrapper extends React.PureComponent {
             }
           ]}
         />
+
         <Header menuItems={headerMenuItems} footerItems={footerMenuItems} />
 
         <main

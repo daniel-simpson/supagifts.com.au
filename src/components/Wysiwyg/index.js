@@ -1,5 +1,6 @@
 import React from "react";
 import * as PropTypes from "prop-types";
+import _ from "lodash";
 
 import styles from "./wysiwyg.module.scss";
 
@@ -9,20 +10,15 @@ class Wysiwyg extends React.PureComponent {
   };
 
   render() {
-    const content = this.props.content;
+    const content = _.get(this.props.content, "childMarkdownRemark.html");
 
-    if (
-      !content ||
-      !content.childMarkdownRemark ||
-      !content.childMarkdownRemark.html
-    )
-      return <div className={styles.noContent} />;
+    if (!content) return <div className={styles.noContent} />;
 
     return (
       <div
         className={styles.wysiwyg}
         dangerouslySetInnerHTML={{
-          __html: content.childMarkdownRemark.html
+          __html: content
         }}
       />
     );

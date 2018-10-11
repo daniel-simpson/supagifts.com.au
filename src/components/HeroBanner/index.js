@@ -6,16 +6,14 @@ class HeroBanner extends React.PureComponent {
   render() {
     const { heading, description, imageUrl } = this.props;
 
-    const hasImage = imageUrl && imageUrl.length;
-
     return (
       <div
         className={styles.hero}
         style={{
-          backgroundImage: hasImage
+          backgroundImage: imageUrl
             ? `url(${imageUrl}?w=960&fm=jpg&fl=progressive)`
             : null,
-          marginTop: !hasImage ? "1rem" : null
+          marginTop: !imageUrl ? "1rem" : null
         }}
       >
         <h1 className="hero-heading">{heading}</h1>

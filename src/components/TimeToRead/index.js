@@ -7,17 +7,14 @@ class TimeToRead extends React.PureComponent {
   };
 
   render() {
-    const { content } = this.props;
+    const timeToRead = _.get(
+      this.props.content,
+      "childMarkdownRemark.timeToRead"
+    );
 
-    if (
-      !content ||
-      !content.childMarkdownRemark ||
-      !content.childMarkdownRemark.timeToRead
-    ) {
+    if (!timeToRead) {
       return null;
     }
-
-    const timeToRead = content.childMarkdownRemark.timeToRead;
 
     return (
       <span>
