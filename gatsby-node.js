@@ -6,40 +6,6 @@ const slash = require(`slash`);
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  var generateBlogPages = (resolve, reject) => {
-    graphql(
-      `
-        {
-          allContentfulBlog(limit: 1000) {
-            edges {
-              node {
-                id
-                slug
-              }
-            }
-          }
-        }
-      `
-    ).then(result => {
-      if (result.errors) {
-        reject(result.errors);
-      }
-
-      const blogTemplate = path.resolve(`./src/templates/blog.js`);
-      _.each(result.data.allContentfulBlog.edges, edge => {
-        createPage({
-          path: `/blog/${edge.node.slug}/`,
-          component: slash(blogTemplate),
-          context: {
-            id: edge.node.id
-          }
-        });
-      });
-
-      resolve();
-    });
-  };
-
   var generateContentPages = (resolve, reject) => {
     graphql(
       `
@@ -111,7 +77,6 @@ exports.createPages = ({ graphql, actions }) => {
   };
 
   return Promise.all([
-    //new Promise(generateBlogPages),
     new Promise(generateContentPages),
     new Promise(generateBoxPages)
   ]);

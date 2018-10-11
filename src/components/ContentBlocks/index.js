@@ -48,24 +48,6 @@ class ContentBlock extends React.PureComponent {
               </div>
             );
 
-            //TODO: bring this back once we have the datas.
-            // if (i.slug) {
-            //   return (
-            //     <Link
-            //       style={{
-            //         flexBasis: `calc(90% / ${columns})`
-            //       }}
-            //       key={i.key}
-            //       to={i.slug}
-            //     >
-            //       <div className={style.contentblocks_item}>
-            //         {image}
-            //         {description}
-            //       </div>
-            //     </Link>
-            //   );
-            // }
-
             return (
               <div
                 className={style.contentblocks_item}
