@@ -28,7 +28,7 @@ class FunnelTemplateWrapper extends React.PureComponent {
             paddingTop: 0
           }}
         >
-          {children()}
+          {children}
         </main>
       </div>
     );
