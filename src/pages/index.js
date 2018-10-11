@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "gatsby-link";
 import Helmet from "react-helmet";
 
 import ContentBlocks from "../components/ContentBlocks";
@@ -43,7 +42,8 @@ class IndexPage extends React.PureComponent {
 
         <HeroBanner imageUrl={heroImage}>
           <h1 className="hero-heading">
-            Welcome to supa&nbsp;<span className="title-light">gifts</span>!
+            Welcome to supa&nbsp;
+            <span className="title-light">gifts</span>!
           </h1>
           <h3>Quality gift boxes that promote great environmental habits</h3>
         </HeroBanner>

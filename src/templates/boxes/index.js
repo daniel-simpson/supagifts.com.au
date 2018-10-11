@@ -1,12 +1,9 @@
 import React from "react";
-import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 import Helmet from "react-helmet";
 
 import ContentBlocks from "../../components/ContentBlocks";
 import CTA from "../../components/CTA";
-import Gallery from "../../components/Gallery";
-import HeroBanner from "../../components/HeroBanner";
 import Wysiwyg from "../../components/Wysiwyg";
 
 import style from "./boxes.module.scss";
@@ -18,7 +15,6 @@ class BoxPageTemplate extends React.Component {
 
   render() {
     const {
-      id,
       name,
       images,
       content,
@@ -41,7 +37,7 @@ class BoxPageTemplate extends React.Component {
 
         <div className="container">
           <div className={style.boxpage_wrapper}>
-            <img src={heroImage} className={style.box_image} />
+            <img src={heroImage} alt="" className={style.box_image} />
             <div className={`${style.content} content-container`}>
               <h1
                 className={`${style.box_name} hero-heading hero-heading-dark`}

@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "gatsby-link";
 import * as PropTypes from "prop-types";
 
 import HeroBanner from "../components/HeroBanner";
@@ -12,7 +11,6 @@ class ContentPageTemplate extends React.Component {
   };
   render() {
     const {
-      id,
       title,
       heroImage,
       content,
@@ -26,7 +24,7 @@ class ContentPageTemplate extends React.Component {
 
     const titleWords = title.split(" ");
     const titleElement =
-      titleWords.length == 2 ? (
+      titleWords.length === 2 ? (
         <h1 className="hero-heading">
           {`${titleWords[0]} `}
           <span className="title-light">{titleWords[1]}</span>
