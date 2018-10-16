@@ -39,7 +39,13 @@ class IndexPage extends React.PureComponent {
       <Layout>
         <Helmet
           title="Home | supa gifts australia"
-          description="Supa gifts australia is a gift box company with a conscience.  Each box has been thoughtfully created to minimise plastic waste while giving a luxurious and reusable gift that really means something."
+          meta={[
+            {
+              name: "description",
+              content:
+                "Supa gifts australia is a gift box company with a conscience.  Each box has been thoughtfully created to minimise plastic waste while giving a luxurious and reusable gift that really means something."
+            }
+          ]}
         />
 
         <HeroBanner

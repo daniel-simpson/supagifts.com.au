@@ -8,7 +8,13 @@ export default () => (
   <FunnelLayout>
     <Helmet
       title="Buy now | supa gifts australia"
-      description="Buy yourself, a friend or a family member a gift with a conscience."
+      meta={[
+        {
+          name: "description",
+          content:
+            "Buy yourself, a friend or a family member a gift with a conscience."
+        }
+      ]}
     />
 
     <Paperform id="supa-gifts" />

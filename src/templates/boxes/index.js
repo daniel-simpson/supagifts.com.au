@@ -35,7 +35,12 @@ class BoxPageTemplate extends React.Component {
       <Layout>
         <Helmet
           title={`${name} gift box | supa gifts australia`}
-          description={`${name} gift box is a thoughtful present that contains a number of items that can help reduce your plastic waste on a daily basis.`}
+          meta={[
+            {
+              name: "description",
+              content: `${name} gift box is a thoughtful present that contains a number of items that can help reduce your plastic waste on a daily basis.`
+            }
+          ]}
         />
 
         <Container>
