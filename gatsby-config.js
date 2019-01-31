@@ -18,6 +18,12 @@ module.exports = {
           require("./.contentful.env").SUPA_GIFTS_CD_TOKEN
       }
     },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `supa_gifts_australia`
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-remark`,
