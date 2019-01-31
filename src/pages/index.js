@@ -7,6 +7,7 @@ import Layout from "../layouts";
 import ContentBlocks from "../components/ContentBlocks";
 import Gallery from "../components/Gallery";
 import HeroBanner from "../components/HeroBanner";
+import Instagram from "../components/InstagramEmbed";
 
 class IndexPage extends React.PureComponent {
   static propTypes = {
@@ -71,6 +72,8 @@ class IndexPage extends React.PureComponent {
           items={featuredItems}
           columns="4"
         />
+
+        
       </Layout>
     );
   }
@@ -135,6 +138,20 @@ export const pageQuery = graphql`
             file {
               url
             }
+          }
+        }
+      }
+    }
+
+    allInstaNode {
+      edges {
+        node {
+          id
+          timestamp
+          caption
+
+          thumbnails {
+            src
           }
         }
       }
