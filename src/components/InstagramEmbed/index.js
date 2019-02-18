@@ -1,8 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import { cleanCaption } from "../../utils/textUtils";
-
 import instaStyle from "./instagram.module.scss";
 
 const Instagram = ({ data }) => {
@@ -14,7 +12,6 @@ const Instagram = ({ data }) => {
       <ul className={instaStyle.container}>
         {tiles.map(tile => {
           const thumbnail = tile.thumbnails[tile.thumbnails.length - 2];
-          // <p>{cleanCaption(tile.caption)}</p>
           return (
             <li key={tile.id}>
               <a
