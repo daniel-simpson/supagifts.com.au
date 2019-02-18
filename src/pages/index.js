@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 
 import Layout from "../layouts";
-import ContentBlocks from "../components/ContentBlocks";
 import Gallery from "../components/Gallery";
 import HeroBanner from "../components/HeroBanner";
 import Instagram from "../components/InstagramEmbed";
@@ -16,13 +15,6 @@ class IndexPage extends React.PureComponent {
 
   render() {
     const homepageData = this.props.data.allContentfulHomePage.edges[0].node;
-    const featuredItems = homepageData.items.map(i => ({
-      key: i.id,
-      title: i.title,
-      description: i.description,
-      img: i.image && i.image.file ? i.image.file.url : null,
-      slug: i.moreInfo
-    }));
 
     const giftBoxes = this.props.data.allContentfulGiftBox.edges.map(gb => ({
       key: gb.node.id,
@@ -67,12 +59,6 @@ class IndexPage extends React.PureComponent {
           itemHeight="400px"
         />
 
-        <ContentBlocks
-          title="Featured Items"
-          items={featuredItems}
-          columns="4"
-        />
-
         <Instagram />
       </Layout>
     );
@@ -90,21 +76,6 @@ export const pageQuery = graphql`
           heroImage {
             file {
               url
-            }
-          }
-          items {
-            id
-            title
-            description {
-              childMarkdownRemark {
-                html
-              }
-            }
-            moreInfo
-            image {
-              file {
-                url
-              }
             }
           }
         }
