@@ -3,10 +3,12 @@ import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 
+import Container from "../layouts/container";
 import Layout from "../layouts";
 import Gallery from "../components/Gallery";
 import HeroBanner from "../components/HeroBanner";
 import Instagram from "../components/InstagramEmbed";
+import Wysiwyg from "../components/Wysiwyg";
 
 class IndexPage extends React.PureComponent {
   static propTypes = {
@@ -52,6 +54,10 @@ class IndexPage extends React.PureComponent {
           imageUrl={heroImage}
         />
 
+        <Container>
+          <Wysiwyg content={homepageData.intro} />
+        </Container>
+
         <Gallery
           title="Gift Boxes"
           items={giftBoxes}
@@ -73,6 +79,11 @@ export const pageQuery = graphql`
       edges {
         node {
           title
+          intro {
+            childMarkdownRemark {
+              html
+            }
+          }
           heroImage {
             file {
               url
