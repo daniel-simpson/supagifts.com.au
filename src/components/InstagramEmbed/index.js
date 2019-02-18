@@ -1,37 +1,36 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import style from "./instagram.css";
+import { cleanCaption } from "../../utils/textUtils";
 
-class Instagram extends React.Component {
-  constructor(props) {
-    super(props);
+import instaStyle from "./instagram.module.scss";
 
-    const tiles = props.data.allInstaNode.edges.map(x => x.node);
+const Instagram = ({ data }) => {
+  const tiles = data.allInstaNode.edges.map(x => x.node);
 
-    return (
-      <ul className={style.instagram_container}>
-        {tiles.map(tile => (
-          <li key={tile.id} className={style.instagram_tile}>
-            <a
-              target="_blank"
-              href={`https://instagram.com/p/${tile.id}`}
-              rel="noopener noreferrer"
-            >
-              <img
-                alt={tile.caption}
-                src={tile.thumbnails[0].src}
-                title={`${tile.likes} likes - ${tile.caption}`}
-                height={tile.thumbnails[0].config_height}
-                width={tile.thumbnails[0].config_width}
-              />
-            </a>
-          </li>
-        ))}
+  return (
+    <div className={instaStyle.module}>
+      <h2 className={instaStyle.title}>Instagram</h2>
+      <ul className={instaStyle.container}>
+        {tiles.map(tile => {
+          const thumbnail = tile.thumbnails[tile.thumbnails.length - 2];
+          // <p>{cleanCaption(tile.caption)}</p>
+          return (
+            <li key={tile.id}>
+              <a
+                target="_blank"
+                href={`https://instagram.com/p/${tile.id}`}
+                rel="noopener noreferrer"
+              >
+                <img src={thumbnail.src} />
+              </a>
+            </li>
+          );
+        })}
       </ul>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default props => (
   <StaticQuery

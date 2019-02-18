@@ -73,7 +73,7 @@ class IndexPage extends React.PureComponent {
           columns="4"
         />
 
-        
+        <Instagram />
       </Layout>
     );
   }

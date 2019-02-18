@@ -37,6 +37,7 @@
     "lodash": "^4.16.4",
     "lunr": "^2.1.2",
     "node-sass": "^4.5.3",
+    "nth-indexof": "^1.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-headroom": "^2.2.2",
