@@ -33,12 +33,13 @@ export default props => (
   <StaticQuery
     query={graphql`
       query instagramQuery {
-        allInstaNode {
+        allInstaNode(sort: { fields: [timestamp], order: DESC }) {
           edges {
             node {
               id
               likes
               caption
+              timestamp
               thumbnails {
                 src
                 config_width
