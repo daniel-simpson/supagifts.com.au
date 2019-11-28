@@ -53,6 +53,12 @@ module.exports = {
         id: `GTM-W5DJ5H6`
       }
     },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: `781969188940773`
+      }
+    },
     `gatsby-plugin-netlify`
   ]
 };
